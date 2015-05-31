@@ -146,10 +146,8 @@ h5 {
 .button {
     background-color: rgba(10, 10, 100, .75);
     border-radius: 5px;
-    /*border: 1px outset #FFF;
-    box-shadow: 2px 2px 2px #333;*/
-    box-shadow: 2px 2px 2px #FFF inset;
-    border: 1px outset #333;
+    border: 1px outset #BBB;
+    box-shadow: 2px 2px 2px #333;
     color: #FFF;
     display: inline-block;
     font-size: 30px;

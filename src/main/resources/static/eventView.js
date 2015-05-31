@@ -11,10 +11,11 @@ $(document).ready(function(){
     }).mouseup(function() {
         $(this).css({
             "background-color": "rgba(10, 10, 100, .75)",
-            "box-shadow": "2px 2px 2px #FFF inset",
-            "border": "1px outset #333",
+            "border": "1px outset #BBB",
+            "box-shadow": "2px 2px 2px #333",
             "color": "#FFF"
         });
+
     //functionality of adding time:
     //convert to seconds
     //repopulate display boxes and global clock
