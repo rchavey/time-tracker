@@ -30,8 +30,16 @@ h2 {
     padding-top: 50px;
     margin-left: 20px;
 }
+/*For Large Screens: center header based on clock in relation to main*/
+@media only screen and (min-width: 908px) {
+    h2{
+        text-align: left;
+        width: 278.813px;
+    }
+}
 
-@media only screen and (max-width: 767px) {
+/*For Small Screens: stacked header, no overlap between h3 and nav*/
+@media only screen and (max-width: 907px) {
     h1, h2, #clock {
         display: block;
     }
