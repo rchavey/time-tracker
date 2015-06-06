@@ -2,9 +2,65 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Time Keeper - Campaign View</title>
+    <link rel="stylesheet" href="timeKeeper.css">
 </head>
 <body>
+
+    <header>
+
+        <h1>Time Keeper</h1>
+        <div class="clock" id="globalClock">
+            <span id="totalDays">0d </span>
+            <span id="totalHours">0h </span>
+            <span id="totalMinutes">0m </span>
+            <span id="totalSeconds">0s</span>
+        </div>
+        <h2>Campaign View</h2>
+
+    </header>
+
+    <nav>
+
+        <ul>
+            <li><a href="sessionView.html">Add Session</a></li>
+        </ul>
+
+    </nav>
+
+    <section id="main">
+        <h3><input type="text" placeholder="Enter Campaign Title"/></h3>
+
+        <ol id="sessionsList">
+            <li class="session">
+                <h4><a href="sessionView.html">March</a></h4>
+                <div class="sessionTime">5d 0h 0m 0s</div>
+                <ol class="sessionNotes">
+                    <li class="eventNotes">Notes</li>
+                    <li class="eventNotes">Notes</li>
+                </ol>
+            </li>
+
+            <li class="session">
+                <h4><a href="sessionView.html">April</a></h4>
+                <div class="sessionTime">5d 0h 0m 0s</div>
+                <ol class="sessionNotes">
+                    <li class="eventNotes">Notes</li>
+                    <li class="eventNotes">Notes</li>
+                </ol>
+            </li>
+
+        </ol>
+
+        <div class="button" id="saveButton">save</div>
+
+
+
+    </section>
+
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="graphics.js"></script>
 
 </body>
 </html>

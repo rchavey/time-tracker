@@ -109,6 +109,11 @@ nav li:last-child {
 
 }
 
+h3 {
+    max-width: 80%;
+    margin: 20px auto 20px;
+}
+
 h3 input {
     text-align: center;
     font-size: 1.5em;
@@ -191,13 +196,13 @@ ol {
     margin-top: 20px;
 }
 
-li.event {
+li.event, li.session {
     border-bottom: 1px solid rgb(10, 10, 150);
     width: 300px;
     margin: 0 auto 10px;
 }
 
-ol h4, .eventTime {
+ol h4, .eventTime, .sessionTime {
     display: inline;
 }
 
@@ -205,9 +210,14 @@ ol h4 {
     margin-right: 10px;
 }
 
-.eventNotes {
-    margin: 5px 0;
+.eventNotes{
+    margin: 5px 0 10px;
 }
+
+.sessionNotes {
+    padding-left: 0;
+}
+
 
 
 #saveButton {
