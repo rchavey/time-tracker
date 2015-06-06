@@ -9,7 +9,15 @@ $(document).ready(function(){
 
         //convert time to seconds
         var totalSeconds = timeToSeconds();
-        populateDisplay(totalSeconds);
+        //populateDisplay(totalSeconds);
+
+        //convert seconds to time
+        var timeArray = secondsToTime(totalSeconds);
+
+        //repopulate all fields
+        populateDisplayBoxes(timeArray);
+        populateGlobalClock(timeArray);
+        populateTimeOfDay(timeArray);
     });
 
     $("#saveButton").click(function () {
@@ -46,9 +54,7 @@ function timeToSeconds (){
 
 
 }
-
-function populateDisplay (totalSeconds) {
-
+function secondsToTime (totalSeconds) {
     //convert total seconds back into larger time units
     var workingSeconds = totalSeconds;
 
@@ -62,49 +68,104 @@ function populateDisplay (totalSeconds) {
     workingSeconds =workingSeconds%60;
 
     var seconds = workingSeconds;
+
+    //convert into an array to pass back
+
+    var timeArray = [];
+    timeArray ["days"] = days;
+    timeArray ["hours"] = hours;
+    timeArray ["minutes"] = minutes;
+    timeArray ["seconds"] = seconds;
+
+    return timeArray;
+
+}
+
+function populateDisplayBoxes (timeArray) {
+
     // repopulate display boxes
-    $("#dayDisplay").html(days);
-    $("#hourDisplay").html(hours);
-    turns = Math.floor(minutes/10);
-    rounds =Math.floor(minutes%10);
+    $("#dayDisplay").html(timeArray["days"]);
+
+    $("#hourDisplay").html(timeArray["hours"]);
+
+    turns = Math.floor(timeArray["minutes"]/10);
     $("#turnDisplay").html(turns);
+
+    rounds =Math.floor(timeArray["minutes"]%10);
     $("#roundDisplay").html(rounds);
-    $("#segmentDisplay").html(seconds/6);
 
+    $("#segmentDisplay").html(timeArray["seconds"]/6);
+}
 
-    //update global clock with animation
+function populateGlobalClock (timeArray) {
+
+    //find elements of globalClock
     var totalDays = $("#totalDays");
     var totalHours = $("#totalHours");
     var totalMinutes = $("#totalMinutes");
     var totalSeconds = $("#totalSeconds");
 
-    if (totalDays.html() != (days.toString() + "d ")) {
+    if (totalDays.html() != (timeArray["days"].toString() + "d ")) {
         totalDays.fadeOut(300, function() {
-            totalDays.html(days + "d ");
+            totalDays.html(timeArray["days"] + "d ");
             totalDays.fadeIn(600);
         });
     };
 
-    if (totalHours.html() != (hours.toString() + "h ")) {
+    if (totalHours.html() != (timeArray["hours"].toString() + "h ")) {
         console.log("hours");
         totalHours.fadeOut(300, function(){
-            totalHours.html(hours + "h ");
+            totalHours.html(timeArray["hours"] + "h ");
             totalHours.fadeIn(600);
         });
     };
 
-    if (totalMinutes.html() != (minutes.toString() + "m ")) {
+    if (totalMinutes.html() != (timeArray["minutes"].toString() + "m ")) {
         totalMinutes.fadeOut(300, function() {
-            totalMinutes.html(minutes + "m ");
+            totalMinutes.html(timeArray["minutes"] + "m ");
             totalMinutes.fadeIn(600);
         });
     };
 
-    if (totalSeconds.html() != (seconds.toString() + "s")) {
+    if (totalSeconds.html() != (timeArray["seconds"].toString() + "s")) {
         totalSeconds.fadeOut(300, function() {
-            totalSeconds.html(seconds + "s");
+            totalSeconds.html(timeArray["seconds"] + "s");
             totalSeconds.fadeIn(600);
         });
     };
+
 }
+
+function populateTimeOfDay (timeArray) {
+    $hours = $("#hours24");
+    $minutes = $("#minutes24");
+    $seconds = $("#seconds24");
+
+    if (Number($hours.html()) != timeArray["hours"]) {
+        $hours.fadeOut (300, function() {
+            if (Number($hours.html()) > 24){
+                $hours.html(timeArray["hours"] - 24);
+            }
+            else {
+                $hours.html(timeArray["hours"]);
+            }
+            $hours.fadeIn(600);
+        });
+    }
+
+    if (Number($minutes.html()) != timeArray["minutes"]) {
+        $minutes.fadeOut (300, function() {
+            $minutes.html(timeArray["minutes"]);
+            $minutes.fadeIn(600);
+        });
+    }
+
+    if (Number($seconds.html()) != timeArray["seconds"]) {
+        $seconds.fadeOut (300, function() {
+            $seconds.html(timeArray["seconds"]);
+            $seconds.fadeIn(600);
+        });
+    }
+}
+
 

@@ -65,9 +65,17 @@ h2 {
 
 #globalClock {
     height: 175px;
-    line-height: 175px;
     width: 175px;
+}
 
+#totalTime {
+    padding-top:70px;
+}
+
+#timeOfDay {
+    color: #DDD;
+    font-size: 14px;
+    padding-top: 5px;
 }
 
 #sessionClock {
@@ -122,7 +130,7 @@ h3 {
     margin: 20px auto 20px;
 }
 
-h3 input {
+h3 > input {
     text-align: center;
     font-size: 1.5em;
     max-width: 80%;
@@ -193,9 +201,10 @@ h5 {
 
 #notes{
     display: inline-block;
-    width: 145px;
     height: 50px;
+    font-size: 14px;
     vertical-align: middle;
+    width: 180px;
 }
 
 
@@ -220,6 +229,7 @@ ol h4 {
 
 .eventNotes{
     margin: 5px 0 10px;
+    font-size: 14px;
 }
 
 .sessionNotes {
