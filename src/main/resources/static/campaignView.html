@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Time Keeper - Campaign View</title>
     <link rel="stylesheet" href="timeKeeper.css">
+    <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -13,17 +14,17 @@
         <h1>Time Keeper</h1>
         <div class="clock" id="globalClock">
             <div id="totalTime">
-                <span id="totalDays">0d </span>
-                <span id="totalHours">0h </span>
-                <span id="totalMinutes">0m </span>
-                <span id="totalSeconds">0s</span>
+                <span id="totalDays"></span>
+                <span id="totalHours"></span>
+                <span id="totalMinutes"></span>
+                <span id="totalSeconds"></span>
             </div>
             <div id="timeOfDay">
-                <span id="hours24">24</span>
+                <span id="hours24">11</span>
                 :
-                <span id="minutes24">40</span>
+                <span id="minutes24"></span>
                 :
-                <span id="seconds24">12</span>
+                <span id="seconds24"></span>
             </div>
         </div>
         <h2>Campaign View</h2>
@@ -70,6 +71,7 @@
 
 
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="initialPopulation.js"></script>
     <script src="graphics.js"></script>
 
 </body>

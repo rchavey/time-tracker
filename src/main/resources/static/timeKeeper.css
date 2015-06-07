@@ -10,7 +10,7 @@ header {
 }
 
 h1, h2 {
-    font-family: "Brush Script MT",cursive;
+    font-family: "Playball",cursive;
 
 }
 
@@ -210,13 +210,16 @@ h5 {
 
 ol {
     list-style-type: none;
-    margin-top: 20px;
+    padding: 0;
+    margin: 20px auto 0;
+    max-width: 90%;
 }
 
 li.event, li.session {
     border-bottom: 1px solid rgb(10, 10, 150);
-    width: 300px;
     margin: 0 auto 10px;
+    max-width: 100%;
+    width: 300px;
 }
 
 ol h4, .eventTime, .sessionTime {
