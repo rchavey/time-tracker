@@ -1,32 +1,25 @@
-nav a {
-    color: #FFF;
-}
-
 .trackingArea {
     background-color: #DDD;
     border-radius: 5px;
     box-shadow: 2px 2px 10px #000;
     color: #333;
-}
-
-#event-selection {
-    clear: both;
     margin-bottom: 15px;
 }
+/*event-selction specific*/
 
-#event-selection > h3, #noteInput, #saveButton {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 10px 5px;
+#event-selection {
+    height: 50px;
+    padding-top: 10px;
 }
 
 #event-selection > h3 {
-    margin-left: 25%;
+    margin: 0 auto;
+    width: 300px;
 }
 
 #event-selection > h3 > select {
-    width:200px;
-
+    font-size: 16px;
+    width:300px;
 }
 
 /*monster-tracker specific*/
@@ -37,11 +30,85 @@ nav a {
     margin-bottom: 15px;
 }
 
+
 /*time-tracker specific*/
 #time-tracker {
+    padding: 10px 5px 10px 40px;
+}
+
+.timeInput {
+    display: inline-block;
+    width: 19%;
+
+}
+
+.timeButton, .InputBox, .displayBox, .inputHeader {
+    display: inline-block;
+    height: 31px;
+    vertical-align: middle;
+
+}
+
+.timeButton {
+    font-size: 25px;
+    width: 30px;
+}
+
+.inputBox {
+    font-size: 16px;
+    height: 20px;
+    margin-left: 10px;
+    width:40px;
+}
+
+.displayBox {
+    height:20px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+
+}
+
+.inputHeader {
+    font-style: italic;
+    text-align: center;
+}
+
+.inputHeader > h4 {
+    font-size: 14px;
+}
+
+.inputHeader > h5 {
+    font-size: 12px;
+}
+
+
+/*
+
+.inputHeader{
+    width:75px;
+    display: inline-block;
+    font-style: italic;
+    vertical-align: middle;
+}
+
+*/
+
+/*dm-table-tracker specific*/
+#dm-table-tracker {
     float: right;
-    margin-bottom: 15px;
+    height: 200px;
     width:40%;
+}
+
+/*notes-tracker specific*/
+#notes-tracker {
+    float:right;
+    height:50px;
+    width:40%;
+
 }
 
 #notes{
@@ -56,46 +123,8 @@ nav a {
     font-size: 16px;
 }
 
-.inputBox {
-    display:inline-block;
-    font-size: 20px;
-    height: 30px;
-    width:50px;
-    margin-left: 10px;
-    vertical-align: middle;
-}
-
-.displayBox {
-    display:inline-block;
-    height:35px;
-    font-size: 30px;
-    font-weight: bold;
-    margin-left: 20px;
-    width:50px;
-    vertical-align: middle;
-}
-
 #noteInput h4 {
     width: 50px;
     vertical-align: middle;
 }
 
-.timeInput{
-    height: 50px;
-    margin-top:10px;
-    vertical-align: middle;
-}
-
-.inputHeader{
-    width:75px;
-    display: inline-block;
-    font-style: italic;
-    vertical-align: middle;
-}
-
-/*dm-table-tracker specific*/
-#dm-table-tracker {
-    float: right;
-    height: 200px;
-    width:40%;
-}
