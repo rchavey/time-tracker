@@ -1,7 +1,7 @@
 $(document).ready(function() {
     //get total seconds of all events in the Database
     $.ajax({
-        url: "http://localhost:8081/time-tracker/total-event-seconds"
+        url: "total-event-seconds"
     }).done(function( data ) {
         var initialSeconds = data.totalEventSeconds;
 
