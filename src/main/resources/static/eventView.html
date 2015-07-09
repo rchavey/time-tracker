@@ -101,7 +101,269 @@
 
         </section>
 
-        <section id="dm-table-tracker" class="trackingArea">
+        <section id="dm-table-tracker">
+            <section id="classAreas">
+
+                <section id="cleric" class="classArea trackingArea">
+                    <h3>cleric</h3>
+
+                    <section class="level">
+                        <h4>Level:</h4>
+                        <input type="number"class="levelInput">
+                    </section>
+
+                    <section class="toHit">
+                        <h4>Enemy AC:</h4>
+                        <input type="number" class="acInput">
+                        <div class="resultDisplay acDisplay">
+                            <span class="resultNeeded"></span> to hit
+                        </div>
+                    </section>
+
+                    <section class="toSave">
+                        <h4>Save vs:</h4>
+
+                        <select class="saveSelect">
+                            <option>paralyzation, posion, death magic</option>
+                            <option>petrification, polymorph</option>
+                            <option>rod, staff, wand</option>
+                            <option>breath weapon</option>
+                            <option>spell</option>
+                        </select>
+
+                        <div class="resultDisplay saveDisplay">
+                            <span class="resultNeeded"></span> to save
+                        </div>
+
+                    </section>
+
+                    <section id= "toTurn">
+                        <h4>Turn:</h4>
+                        <select id="turnSelect" class="turnSelect">
+                            <option>skeleton</option>
+                            <option>zombie</option>
+                            <option>ghoul</option>
+                            <option>shadow</option>
+                            <option>wight</option>
+                            <option>ghast</option>
+                            <option>wraith</option>
+                            <option>mummy</option>
+                            <option>spectre</option>
+                            <option>vampire</option>
+                            <option>ghost</option>
+                            <option>lich</option>
+                            <option>special</option>
+
+                        </select>
+
+                        <div class="resultDisplay" id="turnDeadDisplay">
+                            <span class="resultNeeded"></span>
+                            to turn
+                        </div>
+
+                    </section>
+
+
+                </section>
+
+                <section id="mage" class="classArea trackingArea">
+
+                    <h3>mage</h3>
+
+                    <section class="level">
+                        <h4>Level:</h4>
+                        <input type="number"class="levelInput">
+                    </section>
+
+
+                    <section class="toHit">
+                        <h4>Enemy AC:</h4>
+                        <input type="number" class="acInput">
+                        <div class="resultDisplay acDisplay">
+                            <span class="resultNeeded"></span> to hit
+                        </div>
+                    </section>
+
+                    <section class="toSave">
+                        <h4>Save vs:</h4>
+
+                        <select class="saveSelect">
+                            <option>paralyzation, posion, death magic</option>
+                            <option>petrification, polymorph</option>
+                            <option>rod, staff, wand</option>
+                            <option>breath weapon</option>
+                            <option>spell</option>
+                        </select>
+
+                        <div class="resultDisplay saveDisplay">
+                            <span class="resultNeeded"></span> to save
+                        </div>
+
+                    </section>
+                </section>
+
+                <section id="fighter" class="classArea trackingArea">
+                    <h3>fighter</h3>
+
+                    <section class="level">
+                        <h4>Level:</h4>
+                        <input type="number"class="levelInput">
+                    </section>
+
+                    <section class="toHit">
+                        <h4>Enemy AC:</h4>
+                        <input type="number" class="acInput">
+                        <div class="resultDisplay acDisplay">
+                            <span class="resultNeeded"></span> to hit
+                        </div>
+                    </section>
+
+                    <section class="toSave">
+                        <h4>Save vs:</h4>
+
+                        <select class="saveSelect">
+                            <option>paralyzation, posion, death magic</option>
+                            <option>petrification, polymorph</option>
+                            <option>rod, staff, wand</option>
+                            <option>breath weapon</option>
+                            <option>spell</option>
+                        </select>
+
+                        <div class="resultDisplay saveDisplay">
+                            <span class="resultNeeded"></span> to save
+                        </div>
+
+                    </section>
+                </section>
+
+                <section id="thief" class="classArea trackingArea">
+                    <h3>thief</h3>
+
+                    <section class="level">
+                        <h4>Level:</h4>
+                        <input type="number"class="levelInput">
+                    </section>
+
+                    <section class="toHit">
+                        <h4>Enemy AC:</h4>
+                        <input type="number" class="acInput">
+                        <div class="resultDisplay acDisplay">
+                            <span class="resultNeeded"></span> to hit
+                        </div>
+                    </section>
+
+                    <section class="toSave">
+                        <h4>Save vs:</h4>
+
+                        <select class="saveSelect">
+                            <option>paralyzation, posion, death magic</option>
+                            <option>petrification, polymorph</option>
+                            <option>rod, staff, wand</option>
+                            <option>breath weapon</option>
+                            <option>spell</option>
+                        </select>
+
+                        <div class="resultDisplay saveDisplay">
+                            <span class="resultNeeded"></span> to save
+                        </div>
+
+                    </section>
+                </section>
+            </section>
+
+            <section id="itemSave" class="trackingArea">
+                <h3>item saving throw</h3>
+
+                <h4>Save vs:</h4>
+                <select>
+                    <option>acid</option>
+                    <option>crushing blow</option>
+                    <option>normal blow</option>
+                    <option>disintegration</option>
+                    <option>fall</option>
+                    <option>fireball</option>
+                    <option>magical fire</option>
+                    <option>normal fire</option>
+                    <option>magical frost</option>
+                    <option>lightning bolt</option>
+                    <option>electrical discharge/current</option>
+                </select>
+
+                <table>
+
+                    <tr>
+                        <td>Bone Ivory</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ceramic</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Cloth</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Crystal Vial</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Glass</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Leather Book</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Liquid</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Hard Metal</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Soft Metal Jewelry</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Mirror</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Parchment Paper</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Stone Gem</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Thin Wood Rope</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Thick Wood Rope</td>
+                        <td></td>
+                    </tr>
+                </table>
+
+            </section>
+
 
 
         </section>
@@ -121,6 +383,8 @@
     <script src="initialPopulation.js"></script>
     <script src="eventView.js"></script>
     <script src="graphics.js"></script>
+    <script src="DM_tables.js"></script>
+    <script src="dm-table-tracker.js"></script>
 
 </body>
 

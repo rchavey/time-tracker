@@ -85,22 +85,114 @@
 }
 
 
-/*
-
-.inputHeader{
-    width:75px;
-    display: inline-block;
-    font-style: italic;
-    vertical-align: middle;
-}
-
-*/
 
 /*dm-table-tracker specific*/
 #dm-table-tracker {
     float: right;
-    height: 200px;
     width:40%;
+}
+
+
+#itemSave, #classAreas{
+    display: inline-block;
+    vertical-align: top;
+    width:47.4%;
+}
+
+#classAreas {
+    margin-right: 10px;
+}
+
+.classArea, #itemSave {
+    padding: 5px 0 5px 10px;
+}
+
+#dm-table-tracker h3, #dm-table-tracker h4, #dm-table-tracker input, #dm-table-tracker select, .resultDisplay{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#dm-table-tracker h3 {
+    color: rgb(10, 10, 150);
+    margin: 0;
+    margin-right: 10px;
+}
+
+.classArea > h3 {
+    float: right;
+}
+
+#dm-table-tracker h4 {
+    font-size: 12px;
+    margin: 8px 0;
+}
+
+#dm-table-tracker input{
+    background-color: #BBB;
+    color: #333;
+    font-size: 16px;
+    height: 20px;
+    width:37px ;
+
+}
+
+
+
+.toSave select {
+    width: 75px;
+}
+
+
+.toTurn select {
+    width: 75px;
+}
+
+.resultDisplay {
+    font-size: 12px;
+}
+
+.resultDisplay > span {
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+
+#itemSave h3 {
+    display:block;
+    text-align: center;
+}
+
+#itemSave select {
+    width: 150px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #333;
+    margin: 5px auto;
+    text-align:center;
+    width: 149px;
+}
+
+td {
+    padding: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+td:nth-child(odd) {
+    background-color: #333;
+    border-bottom: 1px solid #DDD;
+    color: #DDD;
+}
+
+td:nth-child(even) {
+    background-color: #CCC;
+    border-bottom: 1px solid #333;
+    color: #333;
+    width: 25px;
 }
 
 /*notes-tracker specific*/
