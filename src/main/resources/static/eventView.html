@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TimeKeeper - Event View</title>
     <link rel="stylesheet" href="timeKeeper.css">
+    <link rel="stylesheet" href="eventView.css">
     <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -39,66 +40,81 @@
 
     </nav>
 
-    <section id="main">
-
-        <h3><input type="text" placeholder="Enter Event Title"/></h3>
-
-        <section class="timeInput">
-            <div class="button timeButton" id="segmentButton">+</div>
-            <input type="number" class="inputBox" id="segmentInput"/>
-            <div class="displayBox" id="segmentDisplay">0</div>
-            <section class="inputHeader">
-                <h4>Segments</h4>
-                <h5>6 seconds</h5>
+    <section id="event-selection" class="trackingArea">
+            <h3><select><option>Event List</option></select></h3>
+            <section id="noteInput">
+                <h4 class="inputHeader">Notes:</h4>
+                <textarea class="inputBox" id="notes"></textarea>
             </section>
-        </section>
-
-
-        <section class="timeInput">
-            <div class="button timeButton" id="roundButton">+</div>
-            <input type="number" class="inputBox" id="roundInput"/>
-            <div class="displayBox" id="roundDisplay">0</div>
-            <section class="inputHeader">
-                <h4>Rounds</h4>
-                <h5>1 minute</h5>
-            </section>
-        </section>
-
-        <section class="timeInput">
-            <div class="button timeButton" id="turnButton">+</div>
-            <input type="number" class="inputBox" id="turnInput"/>
-            <div class="displayBox" id="turnDisplay">0</div>
-            <section class="inputHeader">
-                <h4>Turns</h4>
-                <h5>10 minutes</h5>
-            </section>
-        </section>
-
-        <section class="timeInput">
-            <div class="button timeButton" id="hourButton">+</div>
-            <input type="number" class="inputBox" id="hourInput"/>
-            <div class="displayBox" id="hourDisplay">0</div>
-            <section class="inputHeader">
-                <h4>Hours</h4>
-            </section>
-        </section>
-
-        <section class="timeInput">
-            <div class="button timeButton" id="dayButton">+</div>
-            <input type="number" class="inputBox" id="dayInput"/>
-            <div class="displayBox" id="dayDisplay">0</div>
-            <section class="inputHeader">
-                <h4>Days</h4>
-            </section>
-        </section>
-
-        <section id="noteInput">
-            <h4 class="inputHeader">Notes:</h4>
-            <textarea class="inputBox" id="notes"></textarea>
-        </section>
-
-        <div class="button" id="saveButton">save</div>
+            <div class="button" id="saveButton">save</div>
     </section>
+
+
+        <section id="monster-tracker" class="trackingArea">
+
+
+        </section>
+
+        <section id ="time-tracker" class="trackingArea">
+
+                <section class="timeInput">
+                    <div class="button timeButton" id="segmentButton">+</div>
+                    <input type="number" class="inputBox" id="segmentInput"/>
+                    <div class="displayBox" id="segmentDisplay">0</div>
+                    <section class="inputHeader">
+                        <h4>Segments</h4>
+                        <h5>6 seconds</h5>
+                    </section>
+                </section>
+
+
+                <section class="timeInput">
+                    <div class="button timeButton" id="roundButton">+</div>
+                    <input type="number" class="inputBox" id="roundInput"/>
+                    <div class="displayBox" id="roundDisplay">0</div>
+                    <section class="inputHeader">
+                        <h4>Rounds</h4>
+                        <h5>1 minute</h5>
+                    </section>
+                </section>
+
+                <section class="timeInput">
+                    <div class="button timeButton" id="turnButton">+</div>
+                    <input type="number" class="inputBox" id="turnInput"/>
+                    <div class="displayBox" id="turnDisplay">0</div>
+                    <section class="inputHeader">
+                        <h4>Turns</h4>
+                        <h5>10 minutes</h5>
+                    </section>
+                </section>
+
+                <section class="timeInput">
+                    <div class="button timeButton" id="hourButton">+</div>
+                    <input type="number" class="inputBox" id="hourInput"/>
+                    <div class="displayBox" id="hourDisplay">0</div>
+                    <section class="inputHeader">
+                        <h4>Hours</h4>
+                    </section>
+                </section>
+
+                <section class="timeInput">
+                    <div class="button timeButton" id="dayButton">+</div>
+                    <input type="number" class="inputBox" id="dayInput"/>
+                    <div class="displayBox" id="dayDisplay">0</div>
+                    <section class="inputHeader">
+                        <h4>Days</h4>
+                    </section>
+                </section>
+
+
+        </section>
+
+        <section id="dm-table-tracker" class="trackingArea">
+
+
+        </section>
+
+
 
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="initialPopulation.js"></script>
