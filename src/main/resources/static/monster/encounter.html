@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css' />
+    <link rel='stylesheet' type='text/css' href='css/global.css' />
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    <script src="js/jquery.serialize-object.min.js"></script>
+    <script src="js/encounter.js"></script>
+    <style>
+        .monster-type-container, .monsters-hp-container, #total-xp-container {
+            margin-top:10px;
+        }
+        .monster-hp-container {
+            display:inline-block;
+            margin:10px;
+        }
+        #total-xp-container {
+            font-size:22px;
+        }
+        .monster-type-container {
+            border:1px solid #eee;
+            padding:5px;
+            display:inline-block;
+            width:30%;
+            margin-right:5px;
+            vertical-align:top;
+        }
+        .template {
+            display:none;
+        }
+        .stats-group label {
+            display:block;
+        }
+        .stats-group {
+            margin:5px;
+        }
+        pre {
+            white-space: pre-wrap;
+            font-family: 'Libre Baskerville', serif;
+        }
+        textarea {
+            width:90%;
+            height:150px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav>
+        <a href="monster.html">add new monster type</a>
+        |
+        <a href="xp.html">calculate xp</a>
+        |
+        <a href="encounter.html">add new encounter</a>
+    </nav>
+
+    <div id="encounterListContainer">
+        <select id="encounterList"><option value="">Create new encounter...</option></select>
+    </div>
+
+    <div id="encounterContainer">
+        <form id="encounter-form">
+            <input id="encounter-name" type="text" name="name" size=50 placeholder="encounter name" />
+            <input type="button" id="add-new-monster-type" value="add new monster type" />
+            <input type="button" id="save-button" value="save" />
+            <a id="delete-button" href="#">delete</a>
+            <input type="hidden" id="encounter-id" name="id" value="" />
+        </form>
+    </div>
+
+    <form class="monster-type-container template">
+        <div class="stats-group">
+            <input type="number" class="monster-count" value="1" min="1" />
+            <select class="monstertype" name="monsterType[id]"><option value="">Choose...</option></select>
+            <span class="hitdie"></span><span class="hitdie-modifier"></span>HD
+            <span class="armor-class"></span>AC
+        </div>
+        <div class="stats-group">
+            <span class="num-attacks"></span> attack(s) with <span class="damagePerAttack"></span> damage per attack
+        </div>
+        <div class="stats-group">
+            <span class="monsters-hp-container"></span>
+        </div>
+        <div class="stats-group">
+            <label>Strategy</label>
+            <textarea class="strategy" name="strategy"></textarea>
+        </div>
+        <div class="stats-group">
+            Treasure: <span class="treasure"></span><br/>
+            <textarea class="treasureInput" name="treasure"></textarea>
+        </div>
+        <div class="stats-group">
+            <span class="size"></span> size w/ <span class="movement"></span> movement
+        </div>
+        <div class="stats-group">
+            <h3>Notes:</h3>
+            <pre class="notes"></pre>
+        </div>
+        <div class="stats-group">
+            <h3>Special Abilities:</h3>
+            <pre class="specialAbilities"></pre>
+        </div>
+        <div class="stats-group">
+            <h3>Exceptional Abilities:</h3>
+            <pre class="exceptionalAbilities"></pre>
+        </div>
+    </form>
+    <!--<div id="total-xp-container">
+        Total XP: <span id="calculatedXp">0</span>
+    </div>-->
+
+</body>
+</html>

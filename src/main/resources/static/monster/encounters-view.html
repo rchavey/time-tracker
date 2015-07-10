@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html ng-app="encounters">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'/>
+    <link rel='stylesheet' type='text/css' href='css/global.css'/>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <script src="js/encounters-view-app.js"></script>
+    <style>
+        .monster-type-container, .monsters-hp-container, #total-xp-container {
+            margin-top: 10px;
+        }
+
+        .monster-hp-container {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        #total-xp-container {
+            font-size: 22px;
+        }
+
+        .monster-type-container {
+            border: 1px solid #eee;
+            padding: 5px;
+            display: inline-block;
+            width: 30%;
+            margin-right: 5px;
+            vertical-align: top;
+        }
+
+        .template {
+            display: none;
+        }
+
+        .stats-group label {
+            display: block;
+        }
+
+        .stats-group {
+            margin: 5px;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        textarea {
+            width: 90%;
+            height: 150px;
+        }
+    </style>
+
+</head>
+<body ng-controller="EncounterViewController as encounterViewCtrl">
+
+<nav>
+    <a href="monster.html">add new monster type</a>
+    |
+    <a href="xp.html">calculate xp</a>
+    |
+    <a href="encounter.html">add new encounter</a>
+</nav>
+
+<div id="encounterListContainer">
+    <select id="encounterSelect"
+            ng-model="encounterViewCtrl.selectedEncounter"
+            ng-options="encounter.name for encounter in encounterViewCtrl.encounters"
+            ng-change="encounterViewCtrl.viewEncounter()">
+    </select>
+
+</div>
+
+<div>
+
+    <form class="monster-type-container"
+          ng-repeat="encounterMonsterType in encounterViewCtrl.encounterDetail.encounterMonsterTypes">
+        <div class="stats-group">
+            <span class="hitdie">{{encounterMonsterType.monsterType.hitDice}}+{{encounterMonsterType.monsterType.hitDieModifier}}</span>HD
+            {{encounterMonsterType.monsterType.armorClass}}AC
+        </div>
+        <div class="stats-group">
+            {{encounterMonsterType.monsterType.attackCount}} attack(s)
+            with {{encounterMonsterType.monsterType.damagePerAttack}} damage per attack
+        </div>
+        <div class="stats-group">
+            <div class="monster-hp-container"
+                 ng-repeat="monster in encounterMonsterType.encounterMonsters">
+                <input class="monster-hp" type="number" ng-model="monster.hitPoints"/> of
+                {{monster.hitPoints}} HP
+            </div>
+        </div>
+        <div class="stats-group">
+            <label>Strategy</label>
+            {{encounterMonsterType.strategy}}
+        </div>
+        <div class="stats-group">
+            Treasure:<br/>
+            {{encounterMonsterType.treasure}}
+        </div>
+        <div class="stats-group">
+            {{encounterMonsterType.monsterType.size}} size w/ {{encounterMonsterType.monsterType.movement}} movement
+        </div>
+        <div class="stats-group">
+            <h3>Notes:</h3>
+            {{encounterMonsterType.notes}}
+        </div>
+        <div class="stats-group">
+            <h3>Special Abilities:</h3>
+            {{encounterMonsterType.monsterType.specialAbilities}}
+        </div>
+        <div class="stats-group">
+            <h3>Exceptional Abilities:</h3>
+            {{encounterMonsterType.monsterType.exceptionalAbilities}}
+        </div>
+    </form>
+
+
+</body>
+</html>

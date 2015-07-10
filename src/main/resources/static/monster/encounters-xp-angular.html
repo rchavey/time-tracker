@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="encounters">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css' />
+    <link rel='stylesheet' type='text/css' href='css/global.css' />
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <script src="js/encounters-app.js"></script>
+    <style>
+    </style>
+</head>
+<body ng-controller="EncounterController as encounterCtrl">
+
+<nav>
+    <a href="monster.html">add new monster type</a>
+    |
+    <a href="xp.html">calculate xp</a>
+    |
+    <a href="encounter.html">add new encounter</a>
+</nav>
+
+{{encounterCtrl.totalXp}}
+
+<div ng-repeat="encounter in encounterCtrl.encounters">
+
+    <input type="checkbox"
+           name="selectedEncounters[]"
+           value="{{encounter.id}}"
+           id="encounter{{encounter.id}}"
+           ng-model="encounter.selected"
+           ng-change="encounterCtrl.calculateXp()" />
+    <label for="encounter{{encounter.id}}">{{encounter.name}}</label>
+</div>
+
+</body>
+</html>

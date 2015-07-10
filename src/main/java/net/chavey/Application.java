@@ -1,4 +1,4 @@
-package net.chavey.timetracker;
+package net.chavey;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

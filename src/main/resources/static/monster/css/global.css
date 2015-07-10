@@ -1,0 +1,22 @@
+
+body {
+    font-size:14px;
+    font-family:'Libre Baskerville', serif;
+    color:#555;
+}
+input, textarea {
+    margin-bottom:5px;
+    font-size:12px;
+    padding:5px;
+    font-family:'Libre Baskerville', serif;
+}
+select {
+    font-size:14px;
+    font-family:'Libre Baskerville', serif;
+}
+input[type='number'] {
+    width:35px;
+}
+input[type='button'] {
+    font-size:14px;
+}

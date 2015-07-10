@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="experience">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css' />
+    <link rel='stylesheet' type='text/css' href='css/global.css' />
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <script src="js/xp-app.js"></script>
+    <style>
+        #monster-type-container, #monster-count-container, .monster-hp-container, #total-xp-container {
+            margin-top:10px;
+        }
+        #total-xp-container {
+            font-size:22px;
+        }
+    </style>
+
+</head>
+<body ng-controller="MonsterTypeController as monsterTypeCtrl">
+
+<nav>
+    <a href="monster.html">add new monster type</a>
+    |
+    <a href="xp.html">calculate xp</a>
+    |
+    <a href="encounter.html">add new encounter</a>
+</nav>
+
+<div id="monster-type-container">
+    <label for="monstertype">Monster Type:</label>
+    <select id="monstertype"
+            ng-model="monsterTypeCtrl.selectedType"
+            ng-options="monsterType.name for monsterType in monsterTypeCtrl.monsterTypes">
+    </select>
+</div>
+{{monsterTypeCtrl.selectedType.name}}
+<div id="monster-count-container">
+    <input type="number" id="monsterCount" value="1" min="1" ng-model="monsterTypeCtrl.monsterCount"/>
+    <input type="button" id="addHitPointEntries" value="Add Monsters" ng-click="monsterTypeCtrl.createInstances()"/>
+</div>
+
+<div id="monsters-hp-container">
+    <div class="monster-hp-container">
+        <input type="number" class="hitpoints" value="1" min="1" />
+        <label>HP</label>
+    </div>
+</div>
+
+<div id="total-xp-container">
+    Total XP: <span id="calculatedXp">0</span>
+</div>
+
+<script>
+    $(function() {
+        $("#addHitPointEntries").click(function() {
+            var $input = $(".monster-hp-container:last");
+            for (var i = 0; i < $('#monsterCount').val(); i++) {
+                $input.after("<div class='monster-hp-container'><input type='number' class='hitpoints' value='1' /> <label>HP</label></div>");
+            }
+            $input.children('input').change();
+        });
+    });
+
+    var calculateXp = function () {
+        var monsterType = $('#monstertype option:selected').data();
+        var hitPoints = $(this).val();
+        $.ajax({
+            url: 'controller/base-xp',
+            data: {
+                'hitDice': monsterType.hit_dice,
+                'modifier': monsterType.hit_die_modifier
+            },
+            dataType: 'json',
+            success: function (data) {
+                var monsterCount = $('.hitpoints').length;
+                var totalHitPoints = 0;
+                $('.hitpoints').each(function () {
+                    totalHitPoints += Number($(this).val());
+                });
+                var xpData = data[0];
+                var baseXp = xpData.basic_xp;
+                var hitPointXp = xpData.hit_point_xp;
+                var specialAbilityCount = monsterType.special_ability_count;
+                var specialAbilityXp = xpData.special_ability_xp;
+                var exceptionalAbilityCount = monsterType.exceptional_ability_count;
+                var exceptionalAbilityXp = xpData.exceptional_ability_xp;
+                var calculatedXp = (totalHitPoints * hitPointXp) + monsterCount * (baseXp + (specialAbilityCount * specialAbilityXp) + (exceptionalAbilityCount * exceptionalAbilityXp));
+                $('#calculatedXp').html(calculatedXp);
+            }
+        });
+    };
+
+</script>
+</body>
+</html>
