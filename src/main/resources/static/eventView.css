@@ -5,6 +5,7 @@
     color: #333;
     margin-bottom: 15px;
 }
+
 /*event-selction specific*/
 
 #event-selection {
@@ -13,7 +14,8 @@
 }
 
 #event-selection > h3 {
-    margin: 0 auto;
+    display: inline-block;
+    margin: 0 10px 0 25%;
     width: 300px;
 }
 
@@ -22,11 +24,17 @@
     width:300px;
 }
 
+#saveButton {
+    font-size: 16px;
+    display: inline-block;
+    margin: 0;
+}
+
 /*monster-tracker specific*/
 #monster-tracker {
     float:left;
     width: 58%;
-    height: 550px;
+    height: 490px;
     margin-bottom: 15px;
 }
 
@@ -198,25 +206,26 @@ td:nth-child(even) {
 /*notes-tracker specific*/
 #notes-tracker {
     float:right;
-    height:50px;
-    width:40%;
+    position: relative;
+    bottom: 108px;
+    height: 83px;
+    text-align: center;
+    padding: 5px 0;
+    width: 20%;
 
+}
+
+#noteInput h3 {
+    color: rgb(10, 10, 150);
+    margin: 0;
 }
 
 #notes{
-    display: inline-block;
-    height: 25px;
+    height: 40px;
     font-size: 12px;
-    vertical-align: middle;
-    width: 100px;
+    margin:0 auto;
+    width: 80%;
 }
 
-#saveButton {
-    font-size: 16px;
-}
 
-#noteInput h4 {
-    width: 50px;
-    vertical-align: middle;
-}
 
