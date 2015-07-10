@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="encounters">
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TimeKeeper - Event View</title>
     <link rel="stylesheet" href="timeKeeper.css">
     <link rel="stylesheet" href="eventView.css">
-    <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body ng-controller="EncounterViewController as encounterViewCtrl">
     <header>
 
         <h1>Time Keeper</h1>
@@ -41,7 +41,13 @@
     </nav>
 
     <section id="event-selection" class="trackingArea">
-            <h3><select><option>Event List</option></select></h3>
+            <h3>
+                <select id="encounterSelect"
+                    ng-model="encounterViewCtrl.selectedEncounter"
+                    ng-options="encounter.name for encounter in encounterViewCtrl.encounters"
+                    ng-change="encounterViewCtrl.viewEncounter()">
+                </select>
+            </h3>
             <div class="button" id="saveButton">save</div>
     </section>
 
@@ -98,7 +104,47 @@
         </section>
 
         <section id="monster-tracker" class="trackingArea">
-
+            <form class="monster-type-container"
+                  ng-repeat="encounterMonsterType in encounterViewCtrl.encounterDetail.encounterMonsterTypes">
+                <div class="stats-group">
+                    <span class="hitdie">{{encounterMonsterType.monsterType.hitDice}}+{{encounterMonsterType.monsterType.hitDieModifier}}</span>HD
+                    {{encounterMonsterType.monsterType.armorClass}}AC
+                </div>
+                <div class="stats-group">
+                    {{encounterMonsterType.monsterType.attackCount}} attack(s)
+                    with {{encounterMonsterType.monsterType.damagePerAttack}} damage per attack
+                </div>
+                <div class="stats-group">
+                    <div class="monster-hp-container"
+                         ng-repeat="monster in encounterMonsterType.encounterMonsters">
+                        <input class="monster-hp" type="number" ng-model="monster.hitPoints"/> of
+                        {{monster.hitPoints}} HP
+                    </div>
+                </div>
+                <div class="stats-group">
+                    <label>Strategy</label>
+                    {{encounterMonsterType.strategy}}
+                </div>
+                <div class="stats-group">
+                    Treasure:<br/>
+                    {{encounterMonsterType.treasure}}
+                </div>
+                <div class="stats-group">
+                    {{encounterMonsterType.monsterType.size}} size w/ {{encounterMonsterType.monsterType.movement}} movement
+                </div>
+                <div class="stats-group">
+                    <h3>Notes:</h3>
+                    {{encounterMonsterType.notes}}
+                </div>
+                <div class="stats-group">
+                    <h3>Special Abilities:</h3>
+                    {{encounterMonsterType.monsterType.specialAbilities}}
+                </div>
+                <div class="stats-group">
+                    <h3>Exceptional Abilities:</h3>
+                    {{encounterMonsterType.monsterType.exceptionalAbilities}}
+                </div>
+            </form>
 
         </section>
 
@@ -380,7 +426,9 @@
 
 
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
     <script src="initialPopulation.js"></script>
+    <script src="encounters-view-app.js"></script>
     <script src="eventView.js"></script>
     <script src="graphics.js"></script>
     <script src="DM_tables.js"></script>
