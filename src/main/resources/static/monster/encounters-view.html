@@ -89,8 +89,8 @@
         <div class="stats-group">
             <div class="monster-hp-container"
                  ng-repeat="monster in encounterMonsterType.encounterMonsters">
-                <input class="monster-hp" type="number" ng-model="monster.hitPoints"/> of
-                {{monster.hitPoints}} HP
+                <input class="monster-hp" type="number" ng-model="monster.currentHitPoints"/> of
+                {{monster.maxHitPoints}} HP
             </div>
         </div>
         <div class="stats-group">

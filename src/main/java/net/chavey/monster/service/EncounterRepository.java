@@ -54,7 +54,7 @@ public class EncounterRepository {
 
         for (EncounterMonsterType encounterMonsterType : encounterMonsterTypes) {
             List<EncounterMonster> encounterMonsters = jdbcOperations.query(
-                    "select hit_points, dead_flag as dead from encounter_monster where encounter_id = ? and monster_type_id = ?",
+                    "select max_hit_points, current_hit_points from encounter_monster where encounter_id = ? and monster_type_id = ?",
                     BeanPropertyRowMapper.newInstance(EncounterMonster.class),
                     encounterId, encounterMonsterType.getMonsterType().getId());
             encounterMonsterType.addEncounterMonsters(encounterMonsters);
@@ -105,11 +105,11 @@ public class EncounterRepository {
         SqlParameterSource params = new MapSqlParameterSource()
                 .addValue("encounterId", encounterId)
                 .addValue("monsterTypeId", encounterMonsterType.getMonsterType().getId())
-                .addValue("hitPoints", encounterMonster.getHitPoints())
-                .addValue("deadFlag", encounterMonster.isDead());
+                .addValue("maxHitPoints", encounterMonster.getMaxHitPoints())
+                .addValue("currentHitPoints", encounterMonster.getCurrentHitPoints());
         new SimpleJdbcInsert(jdbcOperations)
                 .withTableName("encounter_monster")
-                .usingColumns("encounter_id", "monster_type_id", "hit_points", "dead_flag")
+                .usingColumns("encounter_id", "monster_type_id", "max_hit_points", "current_hit_points")
                 .execute(params);
     }
 

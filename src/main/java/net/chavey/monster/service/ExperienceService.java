@@ -35,7 +35,7 @@ public class ExperienceService {
 
     public Integer calculateEncounterXp(Long encounterId) {
 
-        String sql = "select em.hit_points, mt.hit_dice, mt.hit_die_modifier, mt.special_ability_count, mt.exceptional_ability_count\n" +
+        String sql = "select em.max_hit_points, mt.hit_dice, mt.hit_die_modifier, mt.special_ability_count, mt.exceptional_ability_count\n" +
                 "from encounter e\n" +
                 "join encounter_monster_type emt\n" +
                 "  on e.id = emt.encounter_id\n" +
