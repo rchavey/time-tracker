@@ -6,6 +6,10 @@
     margin-bottom: 15px;
 }
 
+nav a {
+    color:#FFF;
+}
+
 /*event-selction specific*/
 
 #event-selection {
@@ -47,6 +51,7 @@
 .timeInput {
     display: inline-block;
     width: 19%;
+    min-width: 190px;
 
 }
 
@@ -97,22 +102,38 @@
 /*dm-table-tracker specific*/
 #dm-table-tracker {
     float: right;
-    width:40%;
+    width:405px;
 }
 
 
 #itemSave, #classAreas{
     display: inline-block;
+    box-sizing: border-box;
     vertical-align: top;
-    width:47.4%;
 }
 
 #classAreas {
     margin-right: 10px;
 }
 
+#itemSave {
+    float: right;
+    text-align:center;
+    min-width: 163px;
+    width: 38%;
+}
+
 .classArea, #itemSave {
     padding: 5px 0 5px 10px;
+    width: 200px;
+}
+
+.classArea {
+    width: 200px;
+}
+
+#itemSave {
+    width: 180px;
 }
 
 #dm-table-tracker h3, #dm-table-tracker h4, #dm-table-tracker input, #dm-table-tracker select, .resultDisplay{
@@ -143,8 +164,6 @@
     width:37px ;
 
 }
-
-
 
 .toSave select {
     width: 75px;
@@ -207,11 +226,11 @@ td:nth-child(even) {
 #notes-tracker {
     float:right;
     position: relative;
-    bottom: 108px;
+    bottom: 90px;
     height: 83px;
-    text-align: center;
     padding: 5px 0;
-    width: 20%;
+    text-align: center;
+    width: 15.3%;
 
 }
 
