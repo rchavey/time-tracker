@@ -54,7 +54,7 @@ public class EncounterRepository {
 
         for (EncounterMonsterType encounterMonsterType : encounterMonsterTypes) {
             List<EncounterMonster> encounterMonsters = jdbcOperations.query(
-                    "select hit_points, dead_flag as dead from encounter_monster where encounter_id = ? and monster_type_id = ?",
+                    "select id, max_hit_points, current_hit_points from encounter_monster where encounter_id = ? and monster_type_id = ?",
                     BeanPropertyRowMapper.newInstance(EncounterMonster.class),
                     encounterId, encounterMonsterType.getMonsterType().getId());
             encounterMonsterType.addEncounterMonsters(encounterMonsters);
@@ -89,6 +89,13 @@ public class EncounterRepository {
     public void update(Encounter encounter, Integer encounterId) {
 
         jdbcOperations.update("update encounter set name=? where id=?", encounter.getName(), encounterId);
+
+        encounter.getEncounterMonsterTypes().stream()
+            .flatMap(encounterMonsterType -> encounterMonsterType.getEncounterMonsters().stream())
+            .forEach(encounterMonster ->
+                        jdbcOperations.update(
+                                "UPDATE encounter_monster SET current_hit_points = ? WHERE id = ?",
+                                encounterMonster.getCurrentHitPoints(), encounterMonster.getId()));
     }
 
     public void create(EncounterMonsterType encounterMonsterType, Integer encounterId) {
@@ -105,11 +112,11 @@ public class EncounterRepository {
         SqlParameterSource params = new MapSqlParameterSource()
                 .addValue("encounterId", encounterId)
                 .addValue("monsterTypeId", encounterMonsterType.getMonsterType().getId())
-                .addValue("hitPoints", encounterMonster.getHitPoints())
-                .addValue("deadFlag", encounterMonster.isDead());
+                .addValue("maxHitPoints", encounterMonster.getMaxHitPoints())
+                .addValue("currentHitPoints", encounterMonster.getCurrentHitPoints());
         new SimpleJdbcInsert(jdbcOperations)
                 .withTableName("encounter_monster")
-                .usingColumns("encounter_id", "monster_type_id", "hit_points", "dead_flag")
+                .usingColumns("encounter_id", "monster_type_id", "max_hit_points", "current_hit_points")
                 .execute(params);
     }
 

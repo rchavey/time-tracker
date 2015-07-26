@@ -2,22 +2,37 @@ package net.chavey.monster.domain;
 
 public class EncounterMonster {
 
-    private Integer hitPoints;
-    private boolean dead;
+    private Integer id;
+    private Integer currentHitPoints;
+    private Integer maxHitPoints;
 
-    public Integer getHitPoints() {
-        return hitPoints;
+    public Integer getId() {
+
+        return id;
     }
 
-    public void setHitPoints(Integer hitPoints) {
-        this.hitPoints = hitPoints;
+    public void setId(Integer id) {
+
+        this.id = id;
     }
 
-    public Boolean isDead() {
-        return dead;
+    public Integer getCurrentHitPoints() {
+
+        return currentHitPoints;
     }
 
-    public void setDead(Boolean dead) {
-        this.dead = dead != null && dead;
+    public void setCurrentHitPoints(Integer currentHitPoints) {
+
+        this.currentHitPoints = currentHitPoints;
+    }
+
+    public Integer getMaxHitPoints() {
+
+        return maxHitPoints;
+    }
+
+    public void setMaxHitPoints(Integer maxHitPoints) {
+
+        this.maxHitPoints = maxHitPoints;
     }
 }
