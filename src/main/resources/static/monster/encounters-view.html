@@ -77,7 +77,11 @@
 <div>
 
     <form class="monster-type-container"
-          ng-repeat="encounterMonsterType in encounterViewCtrl.encounterDetail.encounterMonsterTypes">
+          ng-repeat="encounterMonsterType in encounterViewCtrl.encounterDetail.encounterMonsterTypes"
+          ng-submit="encounterViewCtrl.saveEncounter()">
+
+        <input type="submit" value="Save"/>
+
         <div class="stats-group">
             <span class="hitdie">{{encounterMonsterType.monsterType.hitDice}}+{{encounterMonsterType.monsterType.hitDieModifier}}</span>HD
             {{encounterMonsterType.monsterType.armorClass}}AC
