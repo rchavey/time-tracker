@@ -103,8 +103,8 @@
                 </section>
         </section>
 
-        <section id="monster-tracker" class="trackingArea">
-            <form class="monster-type-container"
+        <section id="monster-tracker">
+            <form class="monster-type-container, trackingArea"
                   ng-repeat="encounterMonsterType in encounterViewCtrl.encounterDetail.encounterMonsterTypes"
                   ng-submit="encounterViewCtrl.saveEncounter()">
 
@@ -114,41 +114,42 @@
 -->
 
                 <div class="stats-group">
-                    <span class="hitdie">{{encounterMonsterType.monsterType.hitDice}}+{{encounterMonsterType.monsterType.hitDieModifier}}</span>HD
-                    {{encounterMonsterType.monsterType.armorClass}}AC
+                    <h4>HD: </h4>{{encounterMonsterType.monsterType.hitDice}} + {{encounterMonsterType.monsterType.hitDieModifier}}
+                    <h4>AC: </h4>{{encounterMonsterType.monsterType.armorClass}}
                 </div>
                 <div class="stats-group">
                     {{encounterMonsterType.monsterType.attackCount}} attack(s)
-                    with {{encounterMonsterType.monsterType.damagePerAttack}} damage per attack
-                </div>
-                <div class="stats-group">
-                    <div class="monster-hp-container"
-                         ng-repeat="monster in encounterMonsterType.encounterMonsters">
-                        <input class="monster-hp" type="number" ng-model="monster.currentHitPoints"/> of
-                        {{monster.maxHitPoints}} HP
-                    </div>
-                </div>
-                <div class="stats-group">
-                    <label>Strategy</label>
-                    {{encounterMonsterType.strategy}}
-                </div>
-                <div class="stats-group">
-                    Treasure:<br/>
-                    {{encounterMonsterType.treasure}}
+                    @ {{encounterMonsterType.monsterType.damagePerAttack}} damage
                 </div>
                 <div class="stats-group">
                     {{encounterMonsterType.monsterType.size}} size w/ {{encounterMonsterType.monsterType.movement}} movement
                 </div>
                 <div class="stats-group">
-                    <h3>Notes:</h3>
+                    <div class="monster-hp-container"
+                         ng-repeat="monster in encounterMonsterType.encounterMonsters">
+                        <input class="monster-hp" type="number" ng-model="monster.currentHitPoints"/> of
+                        {{monster.maxHitPoints}} hp
+                    </div>
+                </div>
+                <div class="stats-group">
+                    <h4>Strategy: </h4>
+                    {{encounterMonsterType.strategy}}
+                </div>
+                <div class="stats-group">
+                    <h4>Treasure: </h4>
+                    {{encounterMonsterType.treasure}}
+                </div>
+
+                <div class="stats-group">
+                    <h4>Notes:</h4>
                     {{encounterMonsterType.notes}}
                 </div>
                 <div class="stats-group">
-                    <h3>Special Abilities:</h3>
+                    <h4>Special Abilities:</h4>
                     {{encounterMonsterType.monsterType.specialAbilities}}
                 </div>
                 <div class="stats-group">
-                    <h3>Exceptional Abilities:</h3>
+                    <h4>Exceptional Abilities:</h4>
                     {{encounterMonsterType.monsterType.exceptionalAbilities}}
                 </div>
             </form>
