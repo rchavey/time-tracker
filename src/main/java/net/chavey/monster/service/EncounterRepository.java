@@ -29,13 +29,16 @@ public class EncounterRepository {
 
     public List<Encounter> getAll() {
 
-        return jdbcOperations.query("select id, name from encounter", BeanPropertyRowMapper.newInstance(Encounter.class));
+        return jdbcOperations.query("select id, name, elapsed_seconds from encounter",
+                BeanPropertyRowMapper.newInstance(Encounter.class));
     }
 
     public Encounter getEncounter(Integer encounterId) {
 
         Encounter encounter = jdbcOperations.queryForObject(
-                "select id, name from encounter where id=?", BeanPropertyRowMapper.newInstance(Encounter.class), encounterId);
+                "select id, name, elapsed_seconds from encounter where id=?",
+                BeanPropertyRowMapper.newInstance(Encounter.class),
+                encounterId);
 
         RowMapper<EncounterMonsterType> encounterMonsterTypeRowMapper = (rs, rowNum) -> {
 
@@ -88,7 +91,8 @@ public class EncounterRepository {
 
     public void update(Encounter encounter, Integer encounterId) {
 
-        jdbcOperations.update("update encounter set name=? where id=?", encounter.getName(), encounterId);
+        jdbcOperations.update("update encounter set name=?, elapsed_seconds=? where id=?",
+                encounter.getName(), encounter.getElapsedSeconds(), encounterId);
 
         encounter.getEncounterMonsterTypes().stream()
             .flatMap(encounterMonsterType -> encounterMonsterType.getEncounterMonsters().stream())

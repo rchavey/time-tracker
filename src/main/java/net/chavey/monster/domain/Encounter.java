@@ -9,6 +9,7 @@ public class Encounter {
 
     private Integer id;
     private String name;
+    private Long elapsedSeconds;
     private List<EncounterMonsterType> encounterMonsterTypes = new ArrayList<>();
 
     public Integer getId() {
@@ -29,6 +30,16 @@ public class Encounter {
     public void setName(String name) {
 
         this.name = name;
+    }
+
+    public Long getElapsedSeconds() {
+
+        return elapsedSeconds;
+    }
+
+    public void setElapsedSeconds(Long elapsedSeconds) {
+
+        this.elapsedSeconds = elapsedSeconds;
     }
 
     public List<EncounterMonsterType> getEncounterMonsterTypes() {
