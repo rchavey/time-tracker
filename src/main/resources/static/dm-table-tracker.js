@@ -80,7 +80,7 @@ $(document).ready(function() {
         var selected = $(this).children("option:selected").html();
         var options = itemSaveTable[selected];
 
-        var $cells = $("td:nth-child(even)");
+        var $cells = $("#itemSaveTb td:nth-child(even)");
 
         for(i = 0; i < options.length; i++) {
             $($cells[i]).html(options[i])

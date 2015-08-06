@@ -11,6 +11,20 @@ nav a {
     color:#FFF;
 }
 
+strong {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#dm-table-tracker h4, #monster-tracker h4 {
+    font-size: 12px;
+    margin: 8px 0;
+}
+
+.resultDisplay, #monster-tracker {
+    font-size: 12px;
+}
+
 /*event-selction specific*/
 
 #event-selection {
@@ -43,18 +57,81 @@ nav a {
     width: 58%;
 }
 
+#monster-tracker h3 {
+    color: rgb(10, 10, 150);
+    display: inline-block;
+    font-size: 19px;
+    font-weight: bold;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.monster-type-container {
+    padding-right: 10px;
+}
+
+.stats-group, #monster-tracker h4 {
+    display: inline-block;
+}
+
+.stats-group {
+    margin-right: 10px;
+}
+
+#monsterToHitTb {
+    border-collapse: collapse;
+    border: 1px solid #333;
+    margin-bottom: 10px;
+    text-align:center;
+    width:100%;
+}
+
+#monsterToHitTb  td {
+    padding: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 4%;
+}
+
+#monsterToHitTb tr:nth-child(odd){
+    background-color: #333;
+    color: #DDD;
+}
+
+#monsterToHitTb tr:nth-child(odd) td {
+    border-right: 1px solid #DDD;
+}
+
+#monsterToHitTb tr:nth-child(even) {
+    background-color: #CCC;
+    color: #333;
+}
+
+#monsterToHitTb tr:nth-child(even) td {
+    border-right: 1px solid #333;
+}
+
+#monsterToHitTb tr > td:nth-child(1) {
+    width: 10%;
+}
+
+
 .monster-hp-container {
     display: inline-block;
     font-size: 12px;
     margin-right: 5px;
     margin-bottom: 5px;
-    width: 100px;
+    width: 125px;
 }
 
 .monster-hp {
     font-size: 16px;
     padding-left: 2px;
     width:40px;
+}
+
+.hidden{
+    display:none;
 }
 
 
@@ -113,7 +190,6 @@ nav a {
 }
 
 
-
 /*dm-table-tracker specific*/
 #dm-table-tracker {
     float: right;
@@ -158,18 +234,17 @@ nav a {
 
 #dm-table-tracker h3 {
     color: rgb(10, 10, 150);
+    font-size: 19px;
+    font-weight: bold;
     margin: 0;
     margin-right: 10px;
+
 }
 
 .classArea > h3 {
     float: right;
 }
 
-#dm-table-tracker h4 {
-    font-size: 12px;
-    margin: 8px 0;
-}
 
 #dm-table-tracker input{
     background-color: #BBB;
@@ -189,16 +264,6 @@ nav a {
     width: 75px;
 }
 
-.resultDisplay {
-    font-size: 12px;
-}
-
-.resultDisplay > span {
-    font-size: 16px;
-    font-weight: bold;
-
-}
-
 
 #itemSave h3 {
     display:block;
@@ -209,28 +274,29 @@ nav a {
     width: 150px;
 }
 
-table {
+#itemSaveTb {
     border-collapse: collapse;
     border: 1px solid #333;
-    margin: 5px auto;
+    margin: 7px auto;
     text-align:center;
     width: 149px;
 }
 
-td {
-    padding: 3px;
+#itemSaveTb td {
     font-size: 12px;
     font-weight: bold;
+    height: 19px;
+    padding: 3px;
 }
 
 
-td:nth-child(odd) {
+#itemSaveTb td:nth-child(odd) {
     background-color: #333;
     border-bottom: 1px solid #DDD;
     color: #DDD;
 }
 
-td:nth-child(even) {
+#itemSaveTb td:nth-child(even) {
     background-color: #CCC;
     border-bottom: 1px solid #333;
     color: #333;
@@ -240,12 +306,10 @@ td:nth-child(even) {
 /*notes-tracker specific*/
 #notes-tracker {
     float:right;
-    position: relative;
-    bottom: 90px;
     height: 83px;
     padding: 5px 0;
     text-align: center;
-    width: 15.3%;
+    width: 405px;
 
 }
 

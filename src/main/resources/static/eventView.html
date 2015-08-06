@@ -112,46 +112,107 @@
                 TODO submit this form on global save
                 <input type="submit" value="Save"/>
 -->
+                <h3>{{encounterMonsterType.monsterType.name}}</h3>
 
-                <div class="stats-group">
-                    <h4>HD: </h4>{{encounterMonsterType.monsterType.hitDice}} + {{encounterMonsterType.monsterType.hitDieModifier}}
-                    <h4>AC: </h4>{{encounterMonsterType.monsterType.armorClass}}
-                </div>
-                <div class="stats-group">
-                    {{encounterMonsterType.monsterType.attackCount}} attack(s)
-                    @ {{encounterMonsterType.monsterType.damagePerAttack}} damage
-                </div>
-                <div class="stats-group">
-                    {{encounterMonsterType.monsterType.size}} size w/ {{encounterMonsterType.monsterType.movement}} movement
-                </div>
-                <div class="stats-group">
+                <section class="stats-group">
+                    <h4>HD: </h4> <strong>{{encounterMonsterType.monsterType.hitDice}}+ {{encounterMonsterType.monsterType.hitDieModifier}}</strong>
+                </section>
+                <section class="stats-group">
+                    <h4>AC: </h4> <strong>{{encounterMonsterType.monsterType.armorClass}}</strong>
+                </section>
+                <section class="stats-group">
+                    <h4>Attacks: </h4> <strong>{{encounterMonsterType.monsterType.attackCount}}</strong> attack(s)
+                    @ <strong>{{encounterMonsterType.monsterType.damagePerAttack}}</strong> damage
+                </section>
+                <section class="stats-group">
+                    <h4>Size: </h4> <strong>{{encounterMonsterType.monsterType.size}}</strong>
+                </section>
+                <section class="stats-group">
+                    <h4>Movement: </h4> <strong>{{encounterMonsterType.monsterType.movement}}</strong>
+                </section>
+
+                <table id="monsterToHitTb">
+
+                    <tr>
+                        <td>Enemy AC</td>
+                        <td>-10</td>
+                        <td>-9</td>
+                        <td>-8</td>
+                        <td>-7</td>
+                        <td>-6</td>
+                        <td>-5</td>
+                        <td>-4</td>
+                        <td>-3</td>
+                        <td>-2</td>
+                        <td>-1</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>to hit</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </table>
+
+                <section>
                     <div class="monster-hp-container"
                          ng-repeat="monster in encounterMonsterType.encounterMonsters">
                         <input class="monster-hp" type="number" ng-model="monster.currentHitPoints"/> of
-                        {{monster.maxHitPoints}} hp
+                        <strong>{{monster.maxHitPoints}}</strong> hp
                     </div>
-                </div>
-                <div class="stats-group">
-                    <h4>Strategy: </h4>
-                    {{encounterMonsterType.strategy}}
-                </div>
-                <div class="stats-group">
-                    <h4>Treasure: </h4>
-                    {{encounterMonsterType.treasure}}
-                </div>
+                </section>
 
-                <div class="stats-group">
+                <section class="stats-group">
+                    <h4>Strategy: </h4>
+                    <section class="hidden">{{encounterMonsterType.strategy}}</section>
+                </section>
+                <section class="stats-group">
+                    <h4>Treasure: </h4>
+                    <section class="hidden">{{encounterMonsterType.treasure}}</section>
+                </section>
+
+                <section class="stats-group">
                     <h4>Notes:</h4>
-                    {{encounterMonsterType.notes}}
-                </div>
-                <div class="stats-group">
+                    <section class="hidden">{{encounterMonsterType.notes}}</section>
+                </section>
+                <section class="stats-group">
                     <h4>Special Abilities:</h4>
-                    {{encounterMonsterType.monsterType.specialAbilities}}
-                </div>
-                <div class="stats-group">
+                    <section class="hidden">{{encounterMonsterType.monsterType.specialAbilities}}</section>
+                </section>
+                <section class="stats-group">
                     <h4>Exceptional Abilities:</h4>
-                    {{encounterMonsterType.monsterType.exceptionalAbilities}}
-                </div>
+                    <section class="hidden">{{encounterMonsterType.monsterType.exceptionalAbilities}}</section>
+                </section>
             </form>
 
         </section>
@@ -171,7 +232,7 @@
                         <h4>Enemy AC:</h4>
                         <input type="number" class="acInput">
                         <div class="resultDisplay acDisplay">
-                            <span class="resultNeeded"></span> to hit
+                            <strong class="resultNeeded"></strong> to hit
                         </div>
                     </section>
 
@@ -187,7 +248,7 @@
                         </select>
 
                         <div class="resultDisplay saveDisplay">
-                            <span class="resultNeeded"></span> to save
+                            <strong class="resultNeeded"></strong> to save
                         </div>
 
                     </section>
@@ -212,7 +273,7 @@
                         </select>
 
                         <div class="resultDisplay" id="turnDeadDisplay">
-                            <span class="resultNeeded"></span>
+                            <strong class="resultNeeded"></strong>
                             to turn
                         </div>
 
@@ -235,7 +296,7 @@
                         <h4>Enemy AC:</h4>
                         <input type="number" class="acInput">
                         <div class="resultDisplay acDisplay">
-                            <span class="resultNeeded"></span> to hit
+                            <strong class="resultNeeded"></strong> to hit
                         </div>
                     </section>
 
@@ -251,7 +312,7 @@
                         </select>
 
                         <div class="resultDisplay saveDisplay">
-                            <span class="resultNeeded"></span> to save
+                            <strong class="resultNeeded"></strong> to save
                         </div>
 
                     </section>
@@ -269,7 +330,7 @@
                         <h4>Enemy AC:</h4>
                         <input type="number" class="acInput">
                         <div class="resultDisplay acDisplay">
-                            <span class="resultNeeded"></span> to hit
+                            <strong class="resultNeeded"></strong> to hit
                         </div>
                     </section>
 
@@ -285,7 +346,7 @@
                         </select>
 
                         <div class="resultDisplay saveDisplay">
-                            <span class="resultNeeded"></span> to save
+                            <strong class="resultNeeded"></strong> to save
                         </div>
 
                     </section>
@@ -303,7 +364,7 @@
                         <h4>Enemy AC:</h4>
                         <input type="number" class="acInput">
                         <div class="resultDisplay acDisplay">
-                            <span class="resultNeeded"></span> to hit
+                            <strong class="resultNeeded"></strong> to hit
                         </div>
                     </section>
 
@@ -319,7 +380,7 @@
                         </select>
 
                         <div class="resultDisplay saveDisplay">
-                            <span class="resultNeeded"></span> to save
+                            <strong class="resultNeeded"></strong> to save
                         </div>
 
                     </section>
@@ -344,7 +405,7 @@
                     <option>electrical discharge/current</option>
                 </select>
 
-                <table>
+                <table id="itemSaveTb">
 
                     <tr>
                         <td>Bone Ivory</td>

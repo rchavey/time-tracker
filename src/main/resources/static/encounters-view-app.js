@@ -19,6 +19,7 @@
 
             $http.get('/time-tracker/controller/encounter/'+self.selectedEncounter.id).success(function(data){
                 self.encounterDetail = data;
+
             });
         }
 
