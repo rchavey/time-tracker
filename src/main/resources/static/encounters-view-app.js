@@ -19,7 +19,13 @@
 
             $http.get('/time-tracker/controller/encounter/'+self.selectedEncounter.id).success(function(data){
                 self.encounterDetail = data;
+            });
+        };
 
+        this.saveEncounter = function () {
+
+            $http.post('/time-tracker/controller/encounter/' + self.selectedEncounter.id, self.encounterDetail).success(function (data) {
+                alert('encounter post: ' + data);
             });
         }
 
