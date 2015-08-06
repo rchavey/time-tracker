@@ -31,7 +31,7 @@
                 console.log(self.elapsedTime);
 
                 $timeout(function() {
-                    var monsterTypes = $(.monster-type-container);
+                    var monsterTypes = $(".monster-type-container");
                     //cycle though each monster type
                     for (i=0; i < monsterTypes.length; i++) {
                         //get HD, HD modifier, and display table
@@ -47,15 +47,15 @@
                         if (monsterHD == 1) {
                             if (monsterHDMod < -1) {
                                    toHitIndex = 0;
-                            } else if (monsterHDMod == -1 {
+                            } else if (monsterHDMod == -1) {
                                 toHitIndex = 1;
-                            } else if (monsterHDMod == 0 {
+                            } else if (monsterHDMod == 0) {
                                 toHitIndex = 2;
                             } else {
                                 toHitIndex = 3;
                             }
 
-                        } else if (monsterHD >= 16 {
+                        } else if (monsterHD >= 16) {
                             toHitIndex = 11;
                         } else {
                             toHitIndex = Math.floor(monsterHD / 2) + 3;
@@ -66,7 +66,7 @@
                         var resultsNeeded = monsterTable[toHitIndex];
                         var resultsDisplay = monsterTb.children("tr:nth-child(2)").children("td");
 
-                        for (i=0; i<resultsDisplay.length); i++) {
+                        for (i=0; i<resultsDisplay.length; i++) {
                             resultsDisplay[i + 1].innerHTML(resultsNeeded[i]);
 
                         }
