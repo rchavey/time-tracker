@@ -6,7 +6,7 @@ public class MonsterType {
     private String name;
     private Integer attackCount;
     private Boolean weaponAttackFlag;
-    private Integer damagePerAttack;
+    private String damagePerAttack;
     private Integer hitDice;
     private Integer armorClass;
     private String size;
@@ -62,12 +62,12 @@ public class MonsterType {
         this.weaponAttackFlag = weaponAttackFlag;
     }
 
-    public Integer getDamagePerAttack() {
+    public String getDamagePerAttack() {
 
         return damagePerAttack;
     }
 
-    public void setDamagePerAttack(Integer damagePerAttack) {
+    public void setDamagePerAttack(String damagePerAttack) {
 
         this.damagePerAttack = damagePerAttack;
     }
