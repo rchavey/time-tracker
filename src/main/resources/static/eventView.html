@@ -114,7 +114,8 @@
                 <h3>{{encounterMonsterType.monsterType.name}}</h3>
 
                 <section class="stats-group">
-                    <h4>HD: </h4> <strong>{{encounterMonsterType.monsterType.hitDice}}+ {{encounterMonsterType.monsterType.hitDieModifier}}</strong>
+                    <h4>HD: </h4> <strong  class="monsterHD">{{encounterMonsterType.monsterType.hitDice}}</strong>+
+                    <strong class="monsterHDMod">{{encounterMonsterType.monsterType.hitDieModifier}}</strong>
                 </section>
                 <section class="stats-group">
                     <h4>AC: </h4> <strong>{{encounterMonsterType.monsterType.armorClass}}</strong>
@@ -192,24 +193,24 @@
                 </section>
 
                 <section class="stats-group">
-                    <h4>Strategy: </h4>
+                    <h4 class="popUpLink">Strategy </h4>
                     <section class="hidden">{{encounterMonsterType.strategy}}</section>
                 </section>
                 <section class="stats-group">
-                    <h4>Treasure: </h4>
+                    <h4 class="popUpLink">Treasure </h4>
                     <section class="hidden">{{encounterMonsterType.treasure}}</section>
                 </section>
 
                 <section class="stats-group">
-                    <h4>Notes:</h4>
+                    <h4 class="popUpLink">Monster Notes</h4>
                     <section class="hidden">{{encounterMonsterType.notes}}</section>
                 </section>
                 <section class="stats-group">
-                    <h4>Special Abilities:</h4>
+                    <h4 class="popUpLink">Special Abilities</h4>
                     <section class="hidden">{{encounterMonsterType.monsterType.specialAbilities}}</section>
                 </section>
                 <section class="stats-group">
-                    <h4>Exceptional Abilities:</h4>
+                    <h4 class="popUpLink">Exceptional Abilities</h4>
                     <section class="hidden">{{encounterMonsterType.monsterType.exceptionalAbilities}}</section>
                 </section>
             </form>
@@ -503,5 +504,4 @@
     <script src="dm-table-tracker.js"></script>
 
 </body>
-
 </html>
