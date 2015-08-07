@@ -191,28 +191,31 @@
                         <strong>{{monster.maxHitPoints}}</strong> hp
                     </div>
                 </section>
+                <section id="extraInfo">
+                    <section class="stats-group">
+                        <h4 class="popUpLink">Strategy </h4>
+                        <section class="hidden">{{encounterMonsterType.strategy}}</section>
+                    </section>
+                    <section class="stats-group">
+                        <h4 class="popUpLink">Treasure </h4>
+                        <section class="hidden">{{encounterMonsterType.treasure}}</section>
+                    </section>
 
-                <section class="stats-group">
-                    <h4 class="popUpLink">Strategy </h4>
-                    <section class="hidden">{{encounterMonsterType.strategy}}</section>
-                </section>
-                <section class="stats-group">
-                    <h4 class="popUpLink">Treasure </h4>
-                    <section class="hidden">{{encounterMonsterType.treasure}}</section>
+                    <section class="stats-group">
+                        <h4 class="popUpLink">Monster Notes</h4>
+                        <section class="hidden">{{encounterMonsterType.notes}}</section>
+                    </section>
+                    <section class="stats-group">
+                        <h4 class="popUpLink">Special Abilities</h4>
+                        <section class="hidden">{{encounterMonsterType.monsterType.specialAbilities}}</section>
+                    </section>
+                    <section class="stats-group">
+                        <h4 class="popUpLink">Exceptional Abilities</h4>
+                        <section class="hidden">{{encounterMonsterType.monsterType.exceptionalAbilities}}</section>
+                    </section>
+
                 </section>
 
-                <section class="stats-group">
-                    <h4 class="popUpLink">Monster Notes</h4>
-                    <section class="hidden">{{encounterMonsterType.notes}}</section>
-                </section>
-                <section class="stats-group">
-                    <h4 class="popUpLink">Special Abilities</h4>
-                    <section class="hidden">{{encounterMonsterType.monsterType.specialAbilities}}</section>
-                </section>
-                <section class="stats-group">
-                    <h4 class="popUpLink">Exceptional Abilities</h4>
-                    <section class="hidden">{{encounterMonsterType.monsterType.exceptionalAbilities}}</section>
-                </section>
             </form>
 
         </section>

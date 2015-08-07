@@ -54,7 +54,7 @@ strong {
     float:left;
     height: 490px;
     margin-bottom: 15px;
-    width: 58%;
+    width: 60%;
 }
 
 #monster-tracker h3 {
@@ -130,8 +130,17 @@ strong {
     width:40px;
 }
 
-.hidden{
-    display:none;
+#extraInfo > section {
+   vertical-align: top;
+}
+
+.popUpLink:hover {
+    text-decoration:underline;
+}
+
+
+.hidden {
+    display: none;
 }
 
 

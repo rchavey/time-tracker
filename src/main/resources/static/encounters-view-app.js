@@ -69,13 +69,17 @@
 
                         var resultsDisplay = $(monsterTb).find("tr:nth-child(2)").children("td");
 
-                        for (i=0; i<resultsDisplay.length; i++) {
-                            var j = i + 1;
-                            $(resultsDisplay[j]).html(resultsNeeded[i]);
+                        for (j=0; j < resultsDisplay.length; j++) {
+                            var k = j + 1;
+                            $(resultsDisplay[k]).html(resultsNeeded[j]);
 
 
                         }
 
+                        //add click listener to h4's to display or hide related info
+                        $($monsterType).find(".popUpLink").click(function() {
+                            $(this).siblings("section").toggleClass("hidden");
+                        });
 
                     }
                 });
