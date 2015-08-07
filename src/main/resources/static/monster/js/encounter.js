@@ -1,5 +1,5 @@
 $(function() {
-    $.getJSON("controller/monsters", function(data) {
+    $.getJSON("/time-tracker/controller/monsters", function(data) {
         $.each(data, function() {
             var template = "<option value='{{id}}'>{{name}}</option>";
             var newOption = $(Mustache.render(template, this));
@@ -41,12 +41,12 @@ $(function() {
     })
     .on('change', '#encounterList', function(event) {
         event.preventDefault();
-        var url = "controller/encounter/" + $(this).val();
+        var url = "/time-tracker/controller/encounter/" + $(this).val();
         $.getJSON(url, function(encounter) {
             $('.monster-type-container:not(.template)').remove();
             $('#encounter-name').val(encounter.name);
             $('#encounter-id').val(encounter.id);
-            for (encounterMonsterType in encounter.encounterMonsterTypes) {
+            $.each(encounter.encounterMonsterTypes, function(index, encounterMonsterType) {
                 var $newContainer = $('.monster-type-container.template').clone(true);
                 $newContainer.removeClass('template');
                 $('#encounterContainer').append($newContainer);
@@ -63,7 +63,7 @@ $(function() {
                 $newContainer.find('.monster-count').val(encounterMonsterType.encounterMonsters.length);
                 $newContainer.find('.strategy').val(encounterMonsterType.strategy);
                 $newContainer.find('.treasureInput').val(encounterMonsterType.treasure);
-            }
+            });
             $('.monstertype').change();
 
         });
@@ -71,7 +71,7 @@ $(function() {
     .on('click', '#delete-button', function(event) {
         if (confirm("Really delete this encounter?")) {
             $.ajax({
-                url: 'controller/encounter/' + $("#encounter-id").val(),
+                url: '/time-tracker/controller/encounter/' + $("#encounter-id").val(),
                 type: 'DELETE',
                 success: function(data) {
                     if (data == 'success') {
@@ -94,7 +94,7 @@ $(function() {
     $('#save-button').click(function() {
         //$("form.monster-type-container:not(.template)").submit();
         //event.preventDefault();
-        var url = 'controller/encounter';
+        var url = '/time-tracker/controller/encounter';
         if ($("#encounter-id").val()) {
             url += '/' + $("#encounter-id").val()
         }
@@ -111,7 +111,7 @@ $(function() {
                 $("form.monster-type-container:not(.template)").each(function() {
                     var monsterTypeJson = $(this).serializeJSON();
                     $.ajax({
-                        url: 'controller/encounter/'+encounterId+'/monster-type',
+                        url: '/time-tracker/controller/encounter/'+encounterId+'/monster-type',
                         type: 'POST',
                         dataType: 'json',
                         contentType: 'application/json',
@@ -153,7 +153,7 @@ var calculateXp = function () {
         return;
     }
     var monsterType = $monstertype.data();
-    $.getJSON('controller/base-xp',
+    $.getJSON('/time-tracker/controller/base-xp',
         {
             hitDice: monsterType.HD,
             modifier: monsterType.HitModifier
@@ -178,7 +178,7 @@ var calculateXp = function () {
 
 var loadEncounterMenu = function() {
 
-    $.getJSON("controller/encounters", function(data) {
+    $.getJSON("/time-tracker/controller/encounters", function(data) {
         var template = "<option value='{{id}}'>{{name}}</option>";
         $("#encounterList").empty();
         $("#encounterList").append("<option value=''>Create new encounter...</option>");

@@ -1,9 +1,9 @@
 package net.chavey.monster.controller;
 
 import com.google.gson.Gson;
+import net.chavey.monster.domain.Experience;
 import net.chavey.monster.domain.MonsterType;
 import net.chavey.monster.service.ExperienceService;
-import net.chavey.monster.domain.Experience;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -31,7 +31,7 @@ public class MonsterController {
     @RequestMapping(value="monsters", method=RequestMethod.GET)
     public List<MonsterType> monsters() {
 
-        return jdbcOperations.query("select * from monster_type", BeanPropertyRowMapper.newInstance(MonsterType.class));
+        return jdbcOperations.query("select * from monster_type order by name", BeanPropertyRowMapper.newInstance(MonsterType.class));
     }
 
     @RequestMapping(value="monster/{id}", method=RequestMethod.GET)

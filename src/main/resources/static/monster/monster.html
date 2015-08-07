@@ -112,7 +112,7 @@
         $(function() {
             $("form").submit(function(event) {
                 event.preventDefault();
-                $.post('controller/monster', $(this).serialize(), function(data) {
+                $.post('/time-tracker/controller/monster', $(this).serialize(), function(data) {
                     alert(data);
                 });
             });
