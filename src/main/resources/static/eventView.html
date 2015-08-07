@@ -55,8 +55,8 @@
 
                 <section class="timeInput">
                     <div class="button timeButton" id="segmentButton">+</div>
-                    <input type="number" class="inputBox" id="segmentInput" ng-model="encounterViewCtrl.elapsedTime.segments"/>
-                    <div class="displayBox" id="segmentDisplay">0</div>
+                    <input type="number" class="inputBox" id="segmentInput" />
+                    <div class="displayBox" id="segmentDisplay">{{encounterViewCtrl.elapsedTime.segments}}</div>
                     <section class="inputHeader">
                         <h4>Segments</h4>
                         <h5>6 seconds</h5>
@@ -65,8 +65,8 @@
 
                 <section class="timeInput">
                     <div class="button timeButton" id="roundButton">+</div>
-                    <input type="number" class="inputBox" id="roundInput" ng-model="encounterViewCtrl.elapsedTime.rounds"/>
-                    <div class="displayBox" id="roundDisplay">0</div>
+                    <input type="number" class="inputBox" id="roundInput" />
+                    <div class="displayBox" id="roundDisplay">{{encounterViewCtrl.elapsedTime.rounds}}</div>
                     <section class="inputHeader">
                         <h4>Rounds</h4>
                         <h5>1 minute</h5>
@@ -75,8 +75,8 @@
 
                 <section class="timeInput">
                     <div class="button timeButton" id="turnButton">+</div>
-                    <input type="number" class="inputBox" id="turnInput" ng-model="encounterViewCtrl.elapsedTime.turns"/>
-                    <div class="displayBox" id="turnDisplay">0</div>
+                    <input type="number" class="inputBox" id="turnInput"/>
+                    <div class="displayBox" id="turnDisplay">{{encounterViewCtrl.elapsedTime.turns}}</div>
                     <section class="inputHeader">
                         <h4>Turns</h4>
                         <h5>10 minutes</h5>
@@ -85,8 +85,8 @@
 
                 <section class="timeInput">
                     <div class="button timeButton" id="hourButton">+</div>
-                    <input type="number" class="inputBox" id="hourInput" ng-model="encounterViewCtrl.elapsedTime.hours"/>
-                    <div class="displayBox" id="hourDisplay">0</div>
+                    <input type="number" class="inputBox" id="hourInput"/>
+                    <div class="displayBox" id="hourDisplay">{{encounterViewCtrl.elapsedTime.hours}}</div>
                     <section class="inputHeader">
                         <h4>Hours</h4>
                     </section>
@@ -94,8 +94,8 @@
 
                 <section class="timeInput">
                     <div class="button timeButton" id="dayButton">+</div>
-                    <input type="number" class="inputBox" id="dayInput" ng-model="encounterViewCtrl.elapsedTime.days"/>
-                    <div class="displayBox" id="dayDisplay">0</div>
+                    <input type="number" class="inputBox" id="dayInput"/>
+                    <div class="displayBox" id="dayDisplay">{{encounterViewCtrl.elapsedTime.days}}</div>
                     <section class="inputHeader">
                         <h4>Days</h4>
                     </section>
