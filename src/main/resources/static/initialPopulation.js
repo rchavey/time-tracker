@@ -52,13 +52,14 @@ function populateGlobalClock (timeArray) {
     var totalMinutes = $("#totalMinutes");
     var totalSeconds = $("#totalSeconds");
 
-    totalDays.html(timeArray["days"] + "d ");
-    totalHours.html(timeArray["hours"] + "h ");
-    totalMinutes.html(timeArray["minutes"] + "m ");
-    totalSeconds.html(timeArray["seconds"] + "s");
+    totalDays.html(timeArray["days"]);
+    totalHours.html(timeArray["hours"]);
+    totalMinutes.html(timeArray["minutes"]);
+    totalSeconds.html(timeArray["seconds"]);
 }
 
 function populateTimeOfDay (timeArray) {
+    console.log(timeArray);
     $hours = $("#hours24");
     $minutes = $("#minutes24");
     $seconds = $("#seconds24");
@@ -99,6 +100,7 @@ function populateTimeOfDay (timeArray) {
         });
     }
 }
+
 
 
 
