@@ -32,14 +32,15 @@
 
                 $timeout(function() {
                     var monsterTypes = $(".monster-type-container");
+
                     //cycle though each monster type
                     for (i=0; i < monsterTypes.length; i++) {
                         //get HD, HD modifier, and display table
                         var $monsterType = monsterTypes[i];
 
-                        var monsterHD = $monsterType.children(".monsterHD");
-                        var monsterHDMod = $monsterType.children(".monsterHDMod");
-                        var monsterTb = $monsterType.children("monsterToHitTb");
+                        var monsterHD = Number($($monsterType).find(".monsterHD").html());
+                        var monsterHDMod = Number($($monsterType).find(".monsterHDMod").html());
+                        var monsterTb = $($monsterType).find("#monsterToHitTb");
 
                         var toHitIndex;
 
@@ -64,10 +65,14 @@
 
                         //used HD index to fill table.
                         var resultsNeeded = monsterTable[toHitIndex];
-                        var resultsDisplay = monsterTb.children("tr:nth-child(2)").children("td");
+
+
+                        var resultsDisplay = $(monsterTb).find("tr:nth-child(2)").children("td");
 
                         for (i=0; i<resultsDisplay.length; i++) {
-                            resultsDisplay[i + 1].innerHTML(resultsNeeded[i]);
+                            var j = i + 1;
+                            $(resultsDisplay[j]).html(resultsNeeded[i]);
+
 
                         }
 
