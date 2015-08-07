@@ -52,35 +52,10 @@ function populateGlobalClock (timeArray) {
     var totalMinutes = $("#totalMinutes");
     var totalSeconds = $("#totalSeconds");
 
-    if (totalDays.html() != (timeArray["days"].toString() + "d ")) {
-        totalDays.fadeOut(300, function() {
-            totalDays.html(timeArray["days"] + "d ");
-            totalDays.fadeIn(600);
-        });
-    };
-
-    if (totalHours.html() != (timeArray["hours"].toString() + "h ")) {
-        console.log("hours");
-        totalHours.fadeOut(300, function(){
-            totalHours.html(timeArray["hours"] + "h ");
-            totalHours.fadeIn(600);
-        });
-    };
-
-    if (totalMinutes.html() != (timeArray["minutes"].toString() + "m ")) {
-        totalMinutes.fadeOut(300, function() {
-            totalMinutes.html(timeArray["minutes"] + "m ");
-            totalMinutes.fadeIn(600);
-        });
-    };
-
-    if (totalSeconds.html() != (timeArray["seconds"].toString() + "s")) {
-        totalSeconds.fadeOut(300, function() {
-            totalSeconds.html(timeArray["seconds"] + "s");
-            totalSeconds.fadeIn(600);
-        });
-    };
-
+    totalDays.html(timeArray["days"] + "d ");
+    totalHours.html(timeArray["hours"] + "h ");
+    totalMinutes.html(timeArray["minutes"] + "m ");
+    totalSeconds.html(timeArray["seconds"] + "s");
 }
 
 function populateTimeOfDay (timeArray) {

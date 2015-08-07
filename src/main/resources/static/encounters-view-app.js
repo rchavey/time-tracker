@@ -85,7 +85,12 @@
 
         this.saveEncounter = function () {
 
-            //TODO reduce self.elapsedTime back into total seconds and update self.encounterDetail
+            self.encounterDetail.elapsedSeconds =
+                self.elapsedTime.segments * 6
+                + self.elapsedTime.rounds * 60
+                + self.elapsedTime.turns * 10 * 60
+                + self.elapsedTime.hours * 60 * 60
+                + self.elapsedTime.days * 24 * 60 * 60;
 
             $http.post('/time-tracker/controller/encounter/' + self.selectedEncounter.id, self.encounterDetail).success(function (data) {
                 alert('encounter post: ' + data);
