@@ -60,7 +60,7 @@ public class ExperienceService {
     private int calculateXp(DeadMonster deadMonster) {
 
         Experience xpData = baseXp(deadMonster.getHitDice(), deadMonster.getHitDieModifier()).get(0);
-        int hitPoints = deadMonster.getHitPoints();
+        int hitPoints = deadMonster.getMaxHitPoints();
         int baseXp = xpData.getBasicXp();
         int hitPointXp = xpData.getHitPointXp();
         int specialAbilityCount = deadMonster.getSpecialAbilityCount();

@@ -19,7 +19,7 @@
             for (var i=0; i < self.encounters.length; i++) {
                 var encounter = self.encounters[i];
                 if (encounter.selected) {
-                    $http.get('/controller/encounter/'+encounter.id+'/xp').success(function(data) {
+                    $http.get('/time-tracker/controller/encounter/'+encounter.id+'/xp').success(function(data) {
                         self.totalXp += data;
                     });
                 }

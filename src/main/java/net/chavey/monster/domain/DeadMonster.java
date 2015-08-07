@@ -1,22 +1,19 @@
 package net.chavey.monster.domain;
 
-/**
-* Created by awittig on 3/27/15.
-*/
 public class DeadMonster {
 
-    Integer hitPoints;
+    Integer maxHitPoints;
     Integer hitDice;
     Integer hitDieModifier;
     Integer specialAbilityCount;
     Integer exceptionalAbilityCount;
 
-    public Integer getHitPoints() {
-        return hitPoints;
+    public Integer getMaxHitPoints() {
+        return maxHitPoints;
     }
 
-    public void setHitPoints(Integer hitPoints) {
-        this.hitPoints = hitPoints;
+    public void setMaxHitPoints(Integer maxHitPoints) {
+        this.maxHitPoints = maxHitPoints;
     }
 
     public Integer getHitDice() {

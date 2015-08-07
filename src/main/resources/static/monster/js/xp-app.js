@@ -5,7 +5,7 @@
     app.controller('MonsterTypeController', ['$http', function($http) {
         var monsterTypeController = this;
         this.monsterTypes = [];
-        $http.get('controller/monsters').success(function(data){
+        $http.get('/time-tracker/controller/monsters').success(function(data){
             monsterTypeController.monsterTypes = data;
         });
 
