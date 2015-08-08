@@ -91,12 +91,17 @@ public class EncounterRepository {
 
     public void update(Encounter encounter, Integer encounterId) {
 
-        jdbcOperations.update("update encounter set name=?, elapsed_seconds=? where id=?",
-                encounter.getName(), encounter.getElapsedSeconds(), encounterId);
+        String sql = "UPDATE encounter SET name=:name";
+        if (encounter.getElapsedSeconds() != null) {
+            sql += ", elapsed_seconds=:elapsedSeconds";
+        }
+        sql += " WHERE id=:id";
+
+        namedParameterJdbcOperations.update(sql, new BeanPropertySqlParameterSource(encounter));
 
         encounter.getEncounterMonsterTypes().stream()
-            .flatMap(encounterMonsterType -> encounterMonsterType.getEncounterMonsters().stream())
-            .forEach(encounterMonster ->
+                .flatMap(encounterMonsterType -> encounterMonsterType.getEncounterMonsters().stream())
+                .forEach(encounterMonster ->
                         jdbcOperations.update(
                                 "UPDATE encounter_monster SET current_hit_points = ? WHERE id = ?",
                                 encounterMonster.getCurrentHitPoints(), encounterMonster.getId()));
@@ -117,7 +122,10 @@ public class EncounterRepository {
                 .addValue("encounterId", encounterId)
                 .addValue("monsterTypeId", encounterMonsterType.getMonsterType().getId())
                 .addValue("maxHitPoints", encounterMonster.getMaxHitPoints())
-                .addValue("currentHitPoints", encounterMonster.getCurrentHitPoints());
+                .addValue("currentHitPoints",
+                        encounterMonster.getCurrentHitPoints() == null
+                                ? encounterMonster.getMaxHitPoints()
+                                : encounterMonster.getCurrentHitPoints());
         new SimpleJdbcInsert(jdbcOperations)
                 .withTableName("encounter_monster")
                 .usingColumns("encounter_id", "monster_type_id", "max_hit_points", "current_hit_points")

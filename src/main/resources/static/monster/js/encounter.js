@@ -16,9 +16,7 @@ $(function() {
         var $container = $(this).parents('.monster-type-container').find(".monsters-hp-container");
         $container.empty();
         for (var i = 0; i < $(this).val(); i++) {
-            $container.append("<div class='monster-hp-container'>" +
-            "<input type='number' name='encounterMonsters["+i+"][hitPoints]' class='hitpoints' value='1' /> HP " +
-            "<input type='checkbox' name='encounterMonsters["+i+"][dead]' />Dead</div>");
+            $container.append("<div class='monster-hp-container'><input type='number' name='encounterMonsters["+i+"][maxHitPoints]' class='hitpoints' value='1' /> HP</div>");
         }
         $container.children('input').change();
     })
@@ -57,8 +55,7 @@ $(function() {
                     var encounterMonster = encounterMonsterType.encounterMonsters[i];
                     var checked = encounterMonster.dead ? 'checked="checked"' : '';
                     $encounterMonsterContainer.append("<div class='monster-hp-container'>" +
-                    "<input type='number' name='encounterMonsters["+i+"][hitPoints]' class='hitpoints' value='"+encounterMonster.hitPoints+"' /> HP " +
-                    "<input type='checkbox' name='encounterMonsters["+i+"][dead]' "+checked+" />Dead</div>");
+                    "<input type='number' name='encounterMonsters["+i+"][maxHitPoints]' class='hitpoints' value='"+encounterMonster.maxHitPoints+"' /> HP</div>");
                 }
                 $newContainer.find('.monster-count').val(encounterMonsterType.encounterMonsters.length);
                 $newContainer.find('.strategy').val(encounterMonsterType.strategy);
