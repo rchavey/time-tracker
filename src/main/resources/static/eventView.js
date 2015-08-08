@@ -32,15 +32,17 @@ $(document).ready(function(){
 
 
         //add new time to sibling display box
-        newTime = newTime + Number($(this).siblings(".displayBox").html());
-        $(this).siblings(".displayBox").html(newTime);
+        var target = $(this).siblings(".displayBox").children(".elapsedEncounterTime");
+        newTime = newTime + Number(target.val());
+        target.val(newTime);
+        target.trigger("input");    //tell angular to update the model
 
         //Get current value of each display box
-        var days = Number($("#dayDisplay").html());
-        var hours = Number($("#hourDisplay").html());
-        var turns = Number($("#turnDisplay").html());
-        var rounds = Number($("#roundDisplay").html());
-        var segments = Number($("#segmentDisplay").html());
+        var days = Number($("#dayDisplay .elapsedEncounterTime").val());
+        var hours = Number($("#hourDisplay .elapsedEncounterTime").val());
+        var turns = Number($("#turnDisplay .elapsedEncounterTime").val());
+        var rounds = Number($("#roundDisplay .elapsedEncounterTime").val());
+        var segments = Number($("#segmentDisplay .elapsedEncounterTime").val());
 
 
         //convert time of event into seconds
@@ -120,17 +122,17 @@ function timeToSeconds (days, hours, turns, rounds, segments){
 function populateDisplayBoxes (timeArray) {
 
     // repopulate display boxes
-    $("#dayDisplay").html(timeArray["days"]);
+    $("#dayDisplay .elapsedEncounterTime").val(timeArray["days"]);
 
-    $("#hourDisplay").html(timeArray["hours"]);
+    $("#hourDisplay .elapsedEncounterTime").val(timeArray["hours"]);
 
     turns = Math.floor(timeArray["minutes"]/10);
-    $("#turnDisplay").html(turns);
+    $("#turnDisplay .elapsedEncounterTime").val(turns);
 
     rounds =Math.floor(timeArray["minutes"]%10);
-    $("#roundDisplay").html(rounds);
+    $("#roundDisplay .elapsedEncounterTime").val(rounds);
 
-    $("#segmentDisplay").html(timeArray["seconds"]/6);
+    $("#segmentDisplay .elapsedEncounterTime").val(timeArray["seconds"]/6);
 }
 
 
