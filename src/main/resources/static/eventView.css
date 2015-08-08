@@ -175,14 +175,16 @@ strong {
     width:40px;
 }
 
-.displayBox {
+.displayBox .elapsedEncounterTime {
     height:20px;
     font-size: 20px;
     font-weight: bold;
     line-height: 20px;
     margin-right: 5px;
     margin-left: 5px;
-
+    width: 20px;
+    border: none;
+    background-color: inherit;
 }
 
 .inputHeader {

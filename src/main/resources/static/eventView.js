@@ -22,10 +22,10 @@ $(document).ready(function(){
                 newSeconds = newTime * 600;
                 break;
             case "hourInput":
-                newSeconds = newTime * 3600
+                newSeconds = newTime * 3600;
                 break;
             case "dayInput":
-                newSeconds = newTime * 86400
+                newSeconds = newTime * 86400;
                 break;
 
         }
