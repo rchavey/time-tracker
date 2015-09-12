@@ -35,16 +35,16 @@ public class ExperienceService {
 
     public Integer calculateEncounterXp(Long encounterId) {
 
-        String sql = "select em.max_hit_points, mt.hit_dice, mt.hit_die_modifier, mt.special_ability_count, mt.exceptional_ability_count\n" +
-                "from encounter e\n" +
-                "join encounter_monster_type emt\n" +
-                "  on e.id = emt.encounter_id\n" +
-                "join encounter_monster em\n" +
-                "  on e.id = em.encounter_id\n" +
-                "  and emt.monster_type_id = em.monster_type_id\n" +
-                "join monster_type mt\n" +
-                "  on emt.monster_type_id = mt.id\n" +
-                "where dead_flag" +
+        String sql = "select em.max_hit_points, mt.hit_dice, mt.hit_die_modifier, mt.special_ability_count, mt.exceptional_ability_count " +
+                "from encounter e " +
+                "join encounter_monster_type emt " +
+                "  on e.id = emt.encounter_id " +
+                "join encounter_monster em " +
+                "  on e.id = em.encounter_id " +
+                "  and emt.monster_type_id = em.monster_type_id " +
+                "join monster_type mt " +
+                "  on emt.monster_type_id = mt.id " +
+                "where em.current_hit_points = 0" +
                 "  and e.id = :encounterId";
 
         MapSqlParameterSource param = new MapSqlParameterSource("encounterId", encounterId);
