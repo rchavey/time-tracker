@@ -9,11 +9,13 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +47,7 @@ public class MonsterController {
     }
 
     @RequestMapping(value = "monster", method = RequestMethod.POST)
-    public String saveMonster(@RequestParam Map<String, String> params) {
+    public Map<String, String> saveMonster(@RequestBody Map<String, String> params) {
 
         try {
             System.out.println(params);
@@ -53,12 +55,12 @@ public class MonsterController {
             jdbcOperations.update("insert into monster_type" +
                             "(name, attack_count, weapon_attack_flag, damage_per_attack, hit_dice, hit_die_modifier, armor_class, size, movement, treasure," +
                             " special_ability_count, special_abilities, exceptional_ability_count, exceptional_abilities, intelligence, alignment, rarity, notes)" +
-                            "values (:name, :numAttacks, :weaponAttack, :damagePerAttack, :HD, :hitModifier, :AC, :size, :movement, :treasure," +
-                            " :numSpecialAbilities, :specialAbilities, :numExceptionalAbilities, :exceptionalAbilities, :intelligence, :alignment, :rarity, :notes)",
+                            "values (:name, :attackCount, :weaponAttack, :damagePerAttack, :hitDice, :hitDieModifier, :armorClass, :size, :movement, :treasure," +
+                            " :specialAbilityCount, :specialAbilities, :exceptionalAbilityCount, :exceptionalAbilities, :intelligence, :alignment, :rarity, :notes)",
                     params);
-            return params.get("name") + " saved successfully";
+            return Collections.singletonMap(params.get("name"), "saved successfully");
         } catch (DataAccessException e) {
-            return e.getMessage();
+            return Collections.singletonMap("error", e.getMessage());
         }
     }
 

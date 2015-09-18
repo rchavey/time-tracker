@@ -14,7 +14,7 @@
     <script>
         $(function() {
 
-            $.getJSON('controller/monsters', function(data) {
+            $.getJSON('/time-tracker/controller/monsters', function(data) {
                 $.each(data, function() {
                     var headerTemplate = "<li><div>{{MonsterName}} {{HD}}HD AC{{AC}} {{NumAttacks}} attack(s){{#WeaponAttack}} by weapon{{/WeaponAttack}}</div>";
                     var detailsTemplate = "<ul><li>Treasure: {{Treasure}}</li><li>{{Size}} size</li><li>{{Movement}}&quot; movement</li>";

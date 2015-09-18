@@ -1,122 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="monster">
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
     <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link rel='stylesheet' type='text/css' href='css/global.css'/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="js/monster-app.js"></script>
     <style>
         body {
-            font-size:14px;
-            font-family:'Libre Baskerville', serif;
-            color:#555;
+            font-size: 14px;
+            font-family: 'Libre Baskerville', serif;
+            color: #555;
         }
+
         label {
-            display:block;
-            margin-top:10px;
+            display: block;
+            margin-top: 10px;
         }
+
         input[type='number'] {
-            width:50px;
+            width: 50px;
         }
+
         input, textarea {
-            margin-bottom:5px;
-            font-size:16px;
-            padding:5px;
-            font-family:'Libre Baskerville', serif;
+            margin-bottom: 5px;
+            font-size: 16px;
+            padding: 5px;
+            font-family: 'Libre Baskerville', serif;
         }
+
         .column {
-            width:300px;
-            display:inline-block;
-            vertical-align:top;
+            width: 300px;
+            display: inline-block;
+            vertical-align: top;
         }
     </style>
 </head>
-<body>
+<body ng-controller="MonsterController as monsterCtrl">
 
-    <nav>
-        <a href="monster.html">add new monster type</a>
-        |
-        <a href="xp.html">calculate xp</a>
-        |
-        <a href="encounter.html">add new encounter</a>
-    </nav>
+<nav>
+    <a href="monster.html">add new monster type</a>
+    |
+    <a href="encounters-xp-angular.html">calculate xp</a>
+    |
+    <a href="encounter.html">add new encounter</a>
+</nav>
 
-    <form action="/monster" method="post">
-    <div id="column1" class="column">
 
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" />
+<div id="column1" class="column">
 
-        <label for="numAttacks">Number of attacks</label>
-        <input type="number" id="numAttacks" name="numAttacks" value="0" />
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" ng-model="monsterCtrl.monster.name"/>
 
-        <label for="weaponAttack">Weapon attack</label>
-        <input type="checkbox" id="weaponAttack" name="weaponAttack" />
+    <label for="numAttacks">Number of attacks</label>
+    <input type="number" id="numAttacks" name="numAttacks" value="0" ng-model="monsterCtrl.monster.attackCount"/>
 
-        <label for="damagePerAttack">Damage per attack</label>
-        <input type="text" id="damagePerAttack" name="damagePerAttack" />
+    <label for="weaponAttack">Weapon attack</label>
+    <input type="checkbox" id="weaponAttack" name="weaponAttack" ng-model="monsterCtrl.monster.weaponAttackFlag"/>
 
-        <label for="HD">HD</label>
-        <input type="number" id="HD" name="HD" value="0" />
+    <label for="damagePerAttack">Damage per attack</label>
+    <input type="text" id="damagePerAttack" name="damagePerAttack" ng-model="monsterCtrl.monster.damagePerAttack"/>
 
-        <label for="hitModifier">Hit Modifier</label>
-        <input type="number" id="hitModifier" name="hitModifier" value="0" />
+    <label for="HD">HD</label>
+    <input type="number" id="HD" name="HD" value="0" ng-model="monsterCtrl.monster.hitDice"/>
 
-        <label for="AC">AC</label>
-        <input type="number" id="AC" name="AC" value="0" />
+    <label for="hitModifier">Hit Modifier</label>
+    <input type="number" id="hitModifier" name="hitModifier" value="0" ng-model="monsterCtrl.monster.hitDieModifier"/>
 
-        <label for="size">Size</label>
-        <input type="text" id="size" name="size" />
+    <label for="AC">AC</label>
+    <input type="number" id="AC" name="AC" value="0" ng-model="monsterCtrl.monster.armorClass"/>
 
-        <label for="movement">Movement</label>
-        <input type="text" id="movement" name="movement" />
+    <label for="size">Size</label>
+    <input type="text" id="size" name="size" ng-model="monsterCtrl.monster.size"/>
 
-        <label for="treasure">Treasure</label>
-        <input type="text" id="treasure" name="treasure" />
+    <label for="movement">Movement</label>
+    <input type="text" id="movement" name="movement" ng-model="monsterCtrl.monster.movement"/>
 
+    <label for="treasure">Treasure</label>
+    <input type="text" id="treasure" name="treasure" ng-model="monsterCtrl.monster.treasure"/>
+
+</div>
+
+<div id="column2" class="column">
+
+    <label for="numSpecialAbilities">Number of special abilities</label>
+    <input type="number" id="numSpecialAbilities" name="numSpecialAbilities" value="0"
+           ng-model="monsterCtrl.monster.specialAbilityCount"/>
+
+    <label for="specialAbilities">Special Abilities</label>
+    <textarea id="specialAbilities" name="specialAbilities" ng-model="monsterCtrl.monster.specialAbilities"></textarea>
+
+    <label for="numExceptionalAbilities">Number of exceptional abilities</label>
+    <input type="number" id="numExceptionalAbilities" name="numExceptionalAbilities" value="0"
+           ng-model="monsterCtrl.monster.exceptionalAbilityCount"/>
+
+    <label for="exceptionalAbilities">Exceptional abilities</label>
+    <textarea id="exceptionalAbilities" name="exceptionalAbilities"
+              ng-model="monsterCtrl.monster.exceptionalAbilities"></textarea>
+
+    <label for="intelligence">Intelligence</label>
+    <input type="text" id="intelligence" name="intelligence" ng-model="monsterCtrl.monster.intelligence"/>
+
+    <label for="alignment">Alignment</label>
+    <input type="text" id="alignment" name="alignment" ng-model="monsterCtrl.monster.alignment"/>
+
+    <label for="rarity">Rarity</label>
+    <input type="text" id="rarity" name="rarity" ng-model="monsterCtrl.monster.rarity"/>
+
+    <label for="notes">Notes</label>
+    <textarea id="notes" name="notes" ng-model="monsterCtrl.monster.notes"></textarea>
+
+    <div id="saveContainer" style="margin-top:10px">
+        <input type="button" value="Save" ng-click="monsterCtrl.submitMonster()"/>
     </div>
+</div>
 
-    <div id="column2" class="column">
-
-        <label for="numSpecialAbilities">Number of special abilities</label>
-        <input type="number" id="numSpecialAbilities" name="numSpecialAbilities" value="0" />
-
-        <label for="specialAbilities">Special Abilities</label>
-        <textarea id="specialAbilities" name="specialAbilities"></textarea>
-
-        <label for="numExceptionalAbilities">Number of exceptional abilities</label>
-        <input type="number" id="numExceptionalAbilities" name="numExceptionalAbilities" value="0" />
-
-        <label for="exceptionalAbilities">Exceptional abilities</label>
-        <textarea id="exceptionalAbilities" name="exceptionalAbilities"></textarea>
-
-        <label for="intelligence">Intelligence</label>
-        <input type="text" id="intelligence" name="intelligence" />
-
-        <label for="alignment">Alignment</label>
-        <input type="text" id="alignment" name="alignment" />
-
-        <label for="rarity">Rarity</label>
-        <input type="text" id="rarity" name="rarity" />
-
-        <label for="notes">Notes</label>
-        <textarea id="notes" name="notes"></textarea>
-
-        <div id="saveContainer" style="margin-top:10px">
-            <input type="submit" value="Save" />
-        </div>
-    </div>
-    </form>
-    <script>
-        $(function() {
-            $("form").submit(function(event) {
-                event.preventDefault();
-                $.post('/time-tracker/controller/monster', $(this).serialize(), function(data) {
-                    alert(data);
-                });
-            });
-        });
-    </script>
 </body>
 </html>
